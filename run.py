@@ -13,12 +13,25 @@ import random
 # Pydle interface functions
 
 
+def main():  # main function placeholder
+    username()
+    pydle = Pydle("JACUZZI")
+
+    while True:
+        # convert user input to uppercase to match against hidden word.
+        user_guess = input("\n Enter your guess: ").upper()
+        if user_guess == pydle.hidden:
+            print(f"You guessed correct! The hidden word was: {pydle.hidden}")
+            break
+        print("Nope! This wasn't the word.")
+
+
 def username():
     """
     Function to create the player username for greeting
     """
     # Possibly add a log in prompt here for username and password.
-    user = input("Please Enter Your Username: ").capitalize()
+    user = input("To begin playing please enter Your Username: ").capitalize()
     print(f"\nWelcome to Pydle {user}! This is a Python CLI version of the \n"
           "popular game Wordle. In this version you will have 5 attempts \n"
           "at guessing the hidden word. To add an extra challenge, the \n"
@@ -32,9 +45,9 @@ class Pydle:
     WORD_SIZE = 7
     GUESS_MAX = 5
 
-
-def main():  # main function placeholder
-    username()
+    def __init__(self, hidden: str):
+        self.hidden: str = hidden
+        self.guess = []
 
 
 main()
