@@ -17,17 +17,16 @@ def main():  # main function placeholder
     username()
     pydle = Pydle("JACUZZI")
 
-    while pydle.guess_still():
+    while pydle.guess_still:
         # convert user input to uppercase to match against hidden word.
-        user_guess = input("\n Enter your guess: ").upper()
+        user_guess = input(" Enter your guess: ").upper()
         pydle.guess.append(user_guess)
 
-    if pydle.correct_guess():
-        print(f"You guessed correct! The hidden word was: {pydle.hidden}")  
-        # if user_guess == pydle.hidden:
-        #     print(f"You guessed correct! The hidden word was: {pydle.hidden}")
-        #     break
-        # print("Nope! This wasn't the word.")
+    if pydle.correct_guess:
+        print(f"\nYou guessed correct! The hidden word was: {pydle.hidden}")
+    else:
+        print("\nOh no! You've run out of guesses! (5/5)\n")
+        print("GAME OVER")
 
 
 def username():
@@ -39,7 +38,7 @@ def username():
     print(f"\nWelcome to Pydle {user}! This is a Python CLI version of the \n"
           "popular game Wordle. In this version you will have 5 attempts \n"
           "at guessing the hidden word. To add an extra challenge, the \n"
-          "word you will be guessing is 7 letters long... Good luck!")
+          "word you will be guessing is 7 letters long... Good luck!\n")
 
 # Pydle logic functions
 
@@ -53,6 +52,7 @@ class Pydle:
         self.hidden: str = hidden
         self.guess = []
 
+    @property
     def correct_guess(self):
         """
         True if current guess is equal to the hidden word then win condition
@@ -60,16 +60,18 @@ class Pydle:
         """
         return len(self.guess) > 0 and self.guess[-1] == self.hidden
 
-    def guess_remain(self):
+    @property
+    def guess_remain(self) -> int:
         return self.GUESS_MAX - len(self.guess)
 
+    @property
     def guess_still(self):
         """
         When user has used all their guesses or correctly guessed then can no
         longer continue guessing. True when current number of guesses is less
         than the max guess of 5
         """
-        return len(self.guess) < self.GUESS_MAX and not self.correct_guess
+        return self.guess_remain > 0 and not self.correct_guess
 
 
 main()
