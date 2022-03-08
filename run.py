@@ -57,6 +57,9 @@ class Pydle:
         return self.guess[-1] == self.hidden
 
     def guess_remain(self):
+        return self.GUESS_MAX - len(self.guess)
+
+    def guess_still(self):
         """
         When user has used all their guesses or correctly guessed then can no
         longer continue guessing. True when current number of guesses is less
