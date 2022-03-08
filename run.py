@@ -21,6 +21,8 @@ def main():  # main function placeholder
         # convert user input to uppercase to match against hidden word.
         user_guess = input(" Enter your guess: ").upper()
         pydle.guess.append(user_guess)
+        guess_result = pydle.guess_attempt
+        print(guess_result)
 
     if pydle.correct_guess:
         print(f"\nYou guessed correct! The hidden word was: {pydle.hidden}")
@@ -48,7 +50,7 @@ class Pydle:
     WORD_SIZE = 7
     GUESS_MAX = 5
 
-    def __init__(self, hidden: str): #  set argument 'hidden' to string
+    def __init__(self, hidden: str):  # set argument 'hidden' to string
         self.hidden: str = hidden
         self.guess = []
 
@@ -61,7 +63,7 @@ class Pydle:
         return len(self.guess) > 0 and self.guess[-1] == self.hidden
 
     @property
-    def guess_remain(self) -> int: #  return as an integer
+    def guess_remain(self) -> int:  # return as an integer
         return self.GUESS_MAX - len(self.guess)
 
     @property
@@ -72,23 +74,34 @@ class Pydle:
         than the max guess of 5
         """
         return self.guess_remain > 0 and not self.correct_guess
-    
 
     def guess_attempt(self, word: str):
-        guess_result = [] # list of character rules
-        return []
+        """
+        Compares the user guess against hidden word and gives feedback for the
+        letter by looping through the hidden word letter by letter and checking
+        if the character is valid.
+        """
+        guess_result = []  # list of character rules
+
+        for i in range(self.WORD_SIZE):
+            character = word[i]
+            letter = CharacterRule(character)
+            letter.correct_letter = character in self.hidden
+            letter.correct_position = character == self.hidden[i]
+            guess_result.append(letter)
+
+        return guess_result
 
 
 class CharacterRule:
-    """ 
+    """
     Holds the rules for if the letters are in the hidden word or in the
     correct positon.
     """
-    def character_rule(self, letter: str): #  set argument 'letter' to string
+    def __init__(self, letter: str):  # set argument 'letter' to string
         self.letter: str = letter
         self.correct_letter: bool = False
         self.correct_position: bool = False
 
-        
 
 main()
