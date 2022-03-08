@@ -49,5 +49,20 @@ class Pydle:
         self.hidden: str = hidden
         self.guess = []
 
+    def correct_guess(self):
+        """
+        True if current guess is equal to the hidden word then win condition
+        otherwise False
+        """
+        return self.guess[-1] == self.hidden
+
+    def guess_remain(self):
+        """
+        When user has used all their guesses or correctly guessed then can no
+        longer continue guessing. True when current number of guesses is less
+        than the max guess of 5
+        """
+        return len(self.guess) < self.GUESS_MAX and not self.correct_guess
+
 
 main()
