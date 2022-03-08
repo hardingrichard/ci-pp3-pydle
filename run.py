@@ -17,13 +17,17 @@ def main():  # main function placeholder
     username()
     pydle = Pydle("JACUZZI")
 
-    while True:
+    while pydle.guess_still():
         # convert user input to uppercase to match against hidden word.
         user_guess = input("\n Enter your guess: ").upper()
-        if user_guess == pydle.hidden:
-            print(f"You guessed correct! The hidden word was: {pydle.hidden}")
-            break
-        print("Nope! This wasn't the word.")
+        pydle.guess.append(user_guess)
+
+    if pydle.correct_guess():
+        print(f"You guessed correct! The hidden word was: {pydle.hidden}")  
+        # if user_guess == pydle.hidden:
+        #     print(f"You guessed correct! The hidden word was: {pydle.hidden}")
+        #     break
+        # print("Nope! This wasn't the word.")
 
 
 def username():
@@ -54,7 +58,7 @@ class Pydle:
         True if current guess is equal to the hidden word then win condition
         otherwise False
         """
-        return self.guess[-1] == self.hidden
+        return len(self.guess) > 0 and self.guess[-1] == self.hidden
 
     def guess_remain(self):
         return self.GUESS_MAX - len(self.guess)
