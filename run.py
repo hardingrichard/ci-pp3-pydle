@@ -101,7 +101,7 @@ def interface_result(pydle: Pydle):
         color_string_result = color_interface_result(guess_result)
         print(color_string_result)
 
-    for blank_space in range(pydle.guess_remain):
+    for _ in range(pydle.guess_remain):
         print("_ " * pydle.WORD_SIZE)
 
 
