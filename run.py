@@ -20,8 +20,8 @@ def main():  # main function placeholder
     while pydle.guess_still:
         # convert user input to uppercase to match against hidden word.
         user_guess = input(" Enter your guess: ").upper()
-        pydle.guess.append(user_guess)
-        guess_result = pydle.guess_attempt
+        pydle.guesses.append(user_guess)
+        guess_result = pydle.guess_attempt(user_guess)
         print(guess_result)
 
     if pydle.correct_guess:
@@ -45,6 +45,17 @@ def username():
 # Pydle logic functions
 
 
+class CharacterRule:
+    """
+    Holds the rules for if the letters are in the hidden word or in the
+    correct positon.
+    """
+    def __init__(self, letter: str):  # set argument 'letter' to string
+        self.letter: str = letter
+        self.correct_letter: bool = False
+        self.correct_position: bool = False
+
+
 class Pydle:
     # Class constants
     WORD_SIZE = 7
@@ -52,7 +63,7 @@ class Pydle:
 
     def __init__(self, hidden: str):  # set argument 'hidden' to string
         self.hidden: str = hidden
-        self.guess = []
+        self.guesses = []
 
     @property
     def correct_guess(self):
@@ -60,11 +71,11 @@ class Pydle:
         True if current guess is equal to the hidden word then win condition
         otherwise False
         """
-        return len(self.guess) > 0 and self.guess[-1] == self.hidden
+        return len(self.guesses) > 0 and self.guesses[-1] == self.hidden
 
     @property
     def guess_remain(self) -> int:  # return as an integer
-        return self.GUESS_MAX - len(self.guess)
+        return self.GUESS_MAX - len(self.guesses)
 
     @property
     def guess_still(self):
@@ -75,6 +86,9 @@ class Pydle:
         """
         return self.guess_remain > 0 and not self.correct_guess
 
+    def guess(self, word: str):
+        self.guesses.append(word)
+
     def guess_attempt(self, word: str):
         """
         Compares the user guess against hidden word and gives feedback for the
@@ -84,24 +98,13 @@ class Pydle:
         guess_result = []  # list of character rules
 
         for i in range(self.WORD_SIZE):
-            character = word[i]
+            character = CharacterRule(word[i])
             letter = CharacterRule(character)
             letter.correct_letter = character in self.hidden
             letter.correct_position = character == self.hidden[i]
             guess_result.append(letter)
 
         return guess_result
-
-
-class CharacterRule:
-    """
-    Holds the rules for if the letters are in the hidden word or in the
-    correct positon.
-    """
-    def __init__(self, letter: str):  # set argument 'letter' to string
-        self.letter: str = letter
-        self.correct_letter: bool = False
-        self.correct_position: bool = False
 
 
 main()
