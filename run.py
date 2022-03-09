@@ -50,8 +50,8 @@ class CharacterRule:
     Holds the rules for if the letters are in the hidden word or in the
     correct positon.
     """
-    def __init__(self, letter: str):  # set argument 'letter' to string
-        self.letter: str = letter
+    def __init__(self, word_letter: str):  # set 'word_letter' to string
+        self.word_letter: str = word_letter
         self.correct_letter: bool = False
         self.correct_position: bool = False
 
@@ -64,6 +64,26 @@ class Pydle:
     def __init__(self, hidden: str):  # set argument 'hidden' to string
         self.hidden: str = hidden
         self.guesses = []
+
+    def guess(self, word: str):
+        self.guesses.append(word)
+
+    def guess_attempt(self, word: str):
+        """
+        Compares the user guess against hidden word and gives feedback for the
+        letter by looping through the hidden word letter by letter and checking
+        if the character is valid.
+        """
+        guess_result = []  # list of character rules
+
+        for i in range(self.WORD_SIZE):
+            character_x = word[i]
+            letter = CharacterRule(character_x)
+            letter.correct_letter = character_x in self.hidden
+            letter.correct_position = character_x == self.hidden[i]
+            guess_result.append(letter)
+
+        return guess_result
 
     @property
     def correct_guess(self):
@@ -85,26 +105,6 @@ class Pydle:
         than the max guess of 5
         """
         return self.guess_remain > 0 and not self.correct_guess
-
-    def guess(self, word: str):
-        self.guesses.append(word)
-
-    def guess_attempt(self, word: str):
-        """
-        Compares the user guess against hidden word and gives feedback for the
-        letter by looping through the hidden word letter by letter and checking
-        if the character is valid.
-        """
-        guess_result = []  # list of character rules
-
-        for i in range(self.WORD_SIZE):
-            character = word[i]
-            letter = CharacterRule(character)
-            letter.correct_letter = character in self.hidden
-            letter.correct_position = character == self.hidden[i]
-            guess_result.append(letter)
-
-        return guess_result
 
 
 main()
