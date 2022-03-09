@@ -8,7 +8,7 @@ instead of 6 at guessing the correct word or the game will result in a loss.
 """
 
 import random
-
+from colorama import Fore  # Library for changing terminal text colour
 
 # Pydle interface functions
 
@@ -20,12 +20,35 @@ def main():  # main function placeholder
     while pydle.guess_still:
         # convert user input to uppercase to match against hidden word.
         user_guess = input(" Enter your guess: ").upper()
+
+        if len(user_guess) > pydle.WORD_SIZE:
+            print(
+                Fore.RED + f"The word '{user_guess}' is greater than "
+                f"{pydle.WORD_SIZE} characters... "
+                f"You need to guess a {pydle.WORD_SIZE} letter word!"
+                + Fore.RESET
+                )
+            continue
+
+        if len(user_guess) < pydle.WORD_SIZE:
+            print(
+                Fore.RED + f"The word '{user_guess}' is less than "
+                f"{pydle.WORD_SIZE} characters... "
+                f"You need to guess a {pydle.WORD_SIZE} letter word!"
+                + Fore.RESET
+                )
+            continue
+
         pydle.guess(user_guess)
         guess_result = pydle.guess_attempt(user_guess)
+
         print(*guess_result, sep="\n")  # Prints each result on new line
 
     if pydle.correct_guess:
-        print(f"\nYou guessed correct! The hidden word was: {pydle.hidden}")
+        print(
+            Fore.GREEN + f"\nYou guessed correct! "
+            f"The hidden word was: {pydle.hidden}" + Fore.RESET
+            )
     else:
         print("\nOh no! You've run out of guesses! (5/5)\n")
         print("GAME OVER")
