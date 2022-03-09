@@ -1,3 +1,10 @@
+"""
+character_rule.py file holds the class CharacterRule which is imported into
+the main run.py file and referred to within functions. CharacterRule was
+seperated into its own file to tidy up code and to easily refer to.
+"""
+
+
 class CharacterRule:
     """
     Holds the rules for if the letters are in the hidden word or in the
