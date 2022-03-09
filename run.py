@@ -10,61 +10,6 @@ instead of 6 at guessing the correct word or the game will result in a loss.
 import random
 from colorama import Fore  # Library for changing terminal text colour
 
-# Pydle interface functions
-
-
-def main():  # main function placeholder
-    username()
-    pydle = Pydle("JACUZZI")
-
-    while pydle.guess_still:
-        # convert user input to uppercase to match against hidden word.
-        user_guess = input(" Enter your guess: ").upper()
-
-        if len(user_guess) > pydle.WORD_SIZE:
-            print(
-                Fore.RED + f"The word '{user_guess}' is greater than "
-                f"{pydle.WORD_SIZE} characters... "
-                f"You need to guess a {pydle.WORD_SIZE} letter word!"
-                + Fore.RESET
-                )
-            continue
-
-        if len(user_guess) < pydle.WORD_SIZE:
-            print(
-                Fore.RED + f"The word '{user_guess}' is less than "
-                f"{pydle.WORD_SIZE} characters... "
-                f"You need to guess a {pydle.WORD_SIZE} letter word!"
-                + Fore.RESET
-                )
-            continue
-
-        pydle.guess(user_guess)
-        guess_result = pydle.guess_attempt(user_guess)
-
-        print(*guess_result, sep="\n")  # Prints each result on new line
-
-    if pydle.correct_guess:
-        print(
-            Fore.GREEN + f"\nYou guessed correct! "
-            f"The hidden word was: {pydle.hidden}" + Fore.RESET
-            )
-    else:
-        print("\nOh no! You've run out of guesses! (5/5)\n")
-        print("GAME OVER")
-
-
-def username():
-    """
-    Function to create the player username for greeting
-    """
-    # Possibly add a log in prompt here for username and password.
-    user = input("To begin playing please enter Your Username: ").capitalize()
-    print(f"\nWelcome to Pydle {user}! This is a Python CLI version of the \n"
-          "popular game Wordle. In this version you will have 5 attempts \n"
-          "at guessing the hidden word. To add an extra challenge, the \n"
-          "word you will be guessing is 7 letters long... Good luck!\n")
-
 # Pydle logic functions
 
 
@@ -139,6 +84,86 @@ class Pydle:
         than the max guess of 5
         """
         return self.guess_remain > 0 and not self.correct_guess
+
+# Pydle interface functions
+
+
+def main():  # main function placeholder
+    username()
+    pydle = Pydle("JACUZZI")
+
+    while pydle.guess_still:
+        # convert user input to uppercase to match against hidden word.
+        user_guess = input(" Enter your guess: ").upper()
+
+        if len(user_guess) > pydle.WORD_SIZE:
+            print(
+                Fore.RED + f"The word '{user_guess}' is greater than "
+                f"{pydle.WORD_SIZE} characters... "
+                f"You need to guess a {pydle.WORD_SIZE} letter word!"
+                + Fore.RESET
+                )
+            continue
+
+        if len(user_guess) < pydle.WORD_SIZE:
+            print(
+                Fore.RED + f"The word '{user_guess}' is less than "
+                f"{pydle.WORD_SIZE} characters... "
+                f"You need to guess a {pydle.WORD_SIZE} letter word!"
+                + Fore.RESET
+                )
+            continue
+
+        pydle.guess(user_guess)
+        interface_result(pydle)
+
+        # guess_result = pydle.guess_attempt(user_guess)
+        # print(*guess_result, sep="\n")  # Prints each result on new line
+
+    if pydle.correct_guess:
+        print(
+            Fore.GREEN + f"\nYou guessed correct! "
+            f"The hidden word was: {pydle.hidden}" + Fore.RESET
+            )
+    else:
+        print("\nOh no! You've run out of guesses! (5/5)\n")
+        print("GAME OVER")
+
+
+def interface_result(pydle: Pydle):
+    for word in pydle.guesses:
+        guess_result = pydle.guess_attempt(word)
+
+
+def color_interface_result(guess_result: List[CharacterRule]):
+    """
+    Helper function to store a list of strings and looping through each
+    character of the guess_result displaying the result in colour if correct
+    and/if correct position.
+    """
+    color_guess = []
+    for letter in color_guess:
+        if letter.correct_position:
+            letter_color = Fore.LIGHTBLUE_EX
+        elif letter.correct_letter:
+            letter_color = Fore.CYAN
+        else:
+            letter_color = Fore.LIGHTBLACK_EX
+        character_color = Fore.RESET + letter.word_letter + letter_color
+        color_guess.append(character_color)
+    return "".join(color_guess)
+
+
+def username():
+    """
+    Function to create the player username for greeting
+    """
+    # Possibly add a log in prompt here for username and password.
+    user = input("To begin playing please enter Your Username: ").capitalize()
+    print(f"\nWelcome to Pydle {user}! This is a Python CLI version of the \n"
+          "popular game Wordle. In this version you will have 5 attempts \n"
+          "at guessing the hidden word. To add an extra challenge, the \n"
+          "word you will be guessing is 7 letters long... Good luck!\n")
 
 
 main()
