@@ -24,9 +24,11 @@ def username():
     print("\nWelcome to Pydle " + Fore.MAGENTA + f"{user}! " + Fore.RESET +
           "This is a Python CLI version of the \n"
           "popular game Wordle. In this version you will have 5 attempts \n"
-          "at guessing the hidden word. To add an extra challenge, the \n"
-          )
-    print("word you will be guessing is 7 letters long..." + Fore.GREEN +
+          "at guessing the hidden word. If you guess the correct letter but\n"
+          "in the wrong space then the letter will turn white. If you guess\n"
+          "the correct letter and it is in the right position then the\n"
+          "letter will turn blue. To add an extra challenge, the \n"
+          "word you will be guessing is 7 letters long..." + Fore.GREEN +
           " Good luck!\n" + Fore.RESET
           )
 
@@ -82,6 +84,9 @@ def interface_result(pydle: Pydle):
         color_string_result = color_interface_result(guess_result)
         print(color_string_result)
 
+    for blank_space in range(pydle.guess_remain):
+        print("_ " * pydle.WORD_SIZE)
+
 
 def color_interface_result(guess_result: List[CharacterRule]):
     """
@@ -99,8 +104,7 @@ def color_interface_result(guess_result: List[CharacterRule]):
             letter_color = Fore.LIGHTBLACK_EX
         character_color = letter_color + letter.word_letter + Fore.RESET
         color_guess.append(character_color)
-    return "".join(color_guess)
+    return " ".join(color_guess)
 
 
-if __name__ == "__main__":
-    main()
+main()
