@@ -98,7 +98,7 @@ class Pydle:
         guess_result = []  # list of character rules
 
         for i in range(self.WORD_SIZE):
-            character = CharacterRule(word[i])
+            character = word[i]
             letter = CharacterRule(character)
             letter.correct_letter = character in self.hidden
             letter.correct_position = character == self.hidden[i]
