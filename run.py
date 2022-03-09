@@ -14,28 +14,6 @@ from colorama import Fore  # Library for changing terminal text colour
 # Pydle logic functions
 
 
-class CharacterRule:
-    """
-    Holds the rules for if the letters are in the hidden word or in the
-    correct positon.
-    """
-    def __init__(self, word_letter: str):  # set 'word_letter' to string
-        self.word_letter: str = word_letter
-        self.correct_letter: bool = False
-        self.correct_position: bool = False
-
-    def __repr__(self):
-        """
-        function overrides the information displayed in terminal for
-        CharacterRule object. Making it easier to read feedback from user
-        guess with the correct letter and correct position when debugging.
-        """
-        return (
-            f"[{self.word_letter} correct_letter: {self.correct_letter} "
-            f"correct_position: {self.correct_position}]"
-        )
-
-
 class Pydle:
     # Class constants
     WORD_SIZE = 7
@@ -86,6 +64,7 @@ class Pydle:
         """
         return self.guess_remain > 0 and not self.correct_guess
 
+
 # Pydle interface functions
 
 
@@ -118,8 +97,8 @@ def main():  # main function placeholder
         pydle.guess(user_guess)
         interface_result(pydle)
 
-        # guess_result = pydle.guess_attempt(user_guess)
-        # print(*guess_result, sep="\n")  # Prints each result on new line
+        guess_result = pydle.guess_attempt(user_guess)
+        print(*guess_result, sep="\n")  # Prints each result on new line
 
     if pydle.correct_guess:
         print(
@@ -131,11 +110,33 @@ def main():  # main function placeholder
         print("GAME OVER")
 
 
+class CharacterRule:
+    """
+    Holds the rules for if the letters are in the hidden word or in the
+    correct positon.
+    """
+    def __init__(self, word_letter: str):  # set 'word_letter' to string
+        self.word_letter: str = word_letter
+        self.correct_letter: bool = False
+        self.correct_position: bool = False
+
+    def __repr__(self):
+        """
+        function overrides the information displayed in terminal for
+        CharacterRule object. Making it easier to read feedback from user
+        guess with the correct letter and correct position when debugging.
+        """
+        return (
+            f"[{self.word_letter} correct_letter: {self.correct_letter} "
+            f"correct_position: {self.correct_position}]"
+        )
+
+
 def interface_result(pydle: Pydle):
     for word in pydle.guesses:
         guess_result = pydle.guess_attempt(word)
-        col_str = color_interface_result(guess_result)
-        print(col_str)
+        color_str = color_interface_result(guess_result)
+        print(color_str)
 
 
 def color_interface_result(guess_result: List[CharacterRule]):
@@ -147,12 +148,12 @@ def color_interface_result(guess_result: List[CharacterRule]):
     color_guess = []
     for letter in color_guess:
         if letter.correct_position:
-            letter_color = Fore.LIGHTBLUE_EX
-        elif letter.correct_letter:
             letter_color = Fore.CYAN
+        elif letter.correct_letter:
+            letter_color = Fore.YELLOW
         else:
-            letter_color = Fore.LIGHTBLACK_EX
-        character_color = Fore.RESET + letter.word_letter + letter_color
+            letter_color = Fore.WHITE
+        character_color = letter_color + letter.word_letter + Fore.RESET
         color_guess.append(character_color)
     return "".join(color_guess)
 
