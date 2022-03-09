@@ -20,8 +20,10 @@ def username():
     Function to create the player username for greeting
     """
     # Possibly add a log in prompt here for username and password.
+    print(" ")
     user = input("To begin playing please enter Your Username: ").capitalize()
-    print("\nWelcome to Pydle " + Fore.MAGENTA + f"{user}! " + Fore.RESET +
+    print("\n--------------------------------")
+    print("\nWelcome to Pydle " + Fore.BLUE + f"{user}! " + Fore.RESET +
           "This is a Python CLI version of the \n"
           "popular game Wordle. In this version you will have 5 attempts \n"
           "at guessing the hidden word. If you guess the correct letter but\n"
@@ -31,6 +33,7 @@ def username():
           "word you will be guessing is 7 letters long..." + Fore.GREEN +
           " Good luck!\n" + Fore.RESET
           )
+    print("--------------------------------\n")
 
 
 def main():  # main function placeholder
@@ -39,7 +42,7 @@ def main():  # main function placeholder
 
     while pydle.guess_still:
         # convert user input to uppercase to match against hidden word.
-        user_guess = input(" Enter your guess: ").upper()
+        user_guess = input("\nEnter your guess: ").upper()
 
         if len(user_guess) > pydle.WORD_SIZE:  # Character length validation
             print(
@@ -66,19 +69,33 @@ def main():  # main function placeholder
         # print(*guess_result, sep="\n")  # Prints each result on new line
 
     if pydle.correct_guess:
+        print("\n--------------------------------")
         print(
-            Fore.GREEN + "\nYou guessed correct! "
-            f"The hidden word was: {pydle.hidden}" + Fore.RESET
+            "\n You guessed correctly! \n" + Fore.RESET +
+            " The hidden word was: " + Fore.GREEN + f"{pydle.hidden}\n" +
+            Fore.RESET
             )
+        print("--------------------------------")
     else:
-        print("\nOh no! You've run out of guesses! (5/5)\n")
-        print("The word you were trying to solve was: " + Fore.GREEN +
-              f"{pydle.hidden}\n"
+        print("\n--------------------------------")
+        print("\n Oh no! You've run out of guesses!" + Fore.RED + " (5/5)\n"
+              + Fore.RESET
               )
-        print(Fore.RED + "GAME OVER")
+        print(" The word you were trying to solve was: " + Fore.GREEN +
+              f"{pydle.hidden}\n" + Fore.RESET
+              )
+        print("--------------------------------")
+        print(Fore.RED + "\n GAME OVER\n" + Fore.RESET)
+        print("--------------------------------\n")
 
 
 def interface_result(pydle: Pydle):
+    print("\nTip:")
+    print("--------------------------------")
+    print(Fore.CYAN + " Correct letter in position")
+    print(Fore.WHITE + " Correct letter not in position")
+    print(Fore.LIGHTBLACK_EX + " Incorrect letter not in word" + Fore.RESET)
+    print("--------------------------------\n")
     for word in pydle.guesses:
         guess_result = pydle.guess_attempt(word)
         color_string_result = color_interface_result(guess_result)
