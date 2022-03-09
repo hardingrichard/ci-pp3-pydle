@@ -8,7 +8,6 @@ instead of 6 at guessing the correct word or the game will result in a loss.
 """
 
 from typing import List
-import random
 from colorama import Fore  # Library for changing terminal text colour
 from character_rule import CharacterRule
 from pydle_logic import Pydle
@@ -40,7 +39,7 @@ def main():  # main function placeholder
         # convert user input to uppercase to match against hidden word.
         user_guess = input(" Enter your guess: ").upper()
 
-        if len(user_guess) > pydle.WORD_SIZE:
+        if len(user_guess) > pydle.WORD_SIZE:  # Character length validation
             print(
                 Fore.RED + f"The word '{user_guess}' is greater than "
                 f"{pydle.WORD_SIZE} characters... "
@@ -49,7 +48,7 @@ def main():  # main function placeholder
                 )
             continue
 
-        if len(user_guess) < pydle.WORD_SIZE:
+        if len(user_guess) < pydle.WORD_SIZE:  # Character length validation
             print(
                 Fore.RED + f"The word '{user_guess}' is less than "
                 f"{pydle.WORD_SIZE} characters... "
@@ -66,13 +65,14 @@ def main():  # main function placeholder
 
     if pydle.correct_guess:
         print(
-            Fore.GREEN + f"\nYou guessed correct! "
+            Fore.GREEN + "\nYou guessed correct! "
             f"The hidden word was: {pydle.hidden}" + Fore.RESET
             )
     else:
         print("\nOh no! You've run out of guesses! (5/5)\n")
-        print("The word you were trying to solve was: ")
-        print(Fore.GREEN + f"{pydle.hidden}\n")
+        print("The word you were trying to solve was: " + Fore.GREEN +
+              f"{pydle.hidden}\n"
+              )
         print(Fore.RED + "GAME OVER")
 
 
@@ -90,13 +90,13 @@ def color_interface_result(guess_result: List[CharacterRule]):
     and/if correct position.
     """
     color_guess = []
-    for letter in color_guess:
+    for letter in guess_result:
         if letter.correct_position:
             letter_color = Fore.CYAN
         elif letter.correct_letter:
-            letter_color = Fore.YELLOW
-        else:
             letter_color = Fore.WHITE
+        else:
+            letter_color = Fore.LIGHTBLACK_EX
         character_color = letter_color + letter.word_letter + Fore.RESET
         color_guess.append(character_color)
     return "".join(color_guess)
