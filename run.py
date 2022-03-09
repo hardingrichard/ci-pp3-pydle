@@ -8,6 +8,7 @@ instead of 6 at guessing the correct word or the game will result in a loss.
 """
 
 import random
+from typing import List
 from colorama import Fore  # Library for changing terminal text colour
 
 # Pydle logic functions
@@ -133,6 +134,8 @@ def main():  # main function placeholder
 def interface_result(pydle: Pydle):
     for word in pydle.guesses:
         guess_result = pydle.guess_attempt(word)
+        col_str = color_interface_result(guess_result)
+        print(col_str)
 
 
 def color_interface_result(guess_result: List[CharacterRule]):
