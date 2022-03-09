@@ -20,9 +20,9 @@ def main():  # main function placeholder
     while pydle.guess_still:
         # convert user input to uppercase to match against hidden word.
         user_guess = input(" Enter your guess: ").upper()
-        pydle.guesses.append(user_guess)
+        pydle.guess(user_guess)
         guess_result = pydle.guess_attempt(user_guess)
-        print(guess_result)
+        print(*guess_result, sep="\n")  # Prints each result on new line
 
     if pydle.correct_guess:
         print(f"\nYou guessed correct! The hidden word was: {pydle.hidden}")
@@ -54,6 +54,17 @@ class CharacterRule:
         self.word_letter: str = word_letter
         self.correct_letter: bool = False
         self.correct_position: bool = False
+
+    def __repr__(self):
+        """
+        function overrides the information displayed in terminal for
+        CharacterRule object. Making it easier to read feedback from user
+        guess with the correct letter and correct position when debugging.
+        """
+        return (
+            f"[{self.word_letter} correct_letter: {self.correct_letter} "
+            f"correct_position: {self.correct_position}]"
+        )
 
 
 class Pydle:
