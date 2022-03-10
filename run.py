@@ -34,13 +34,16 @@ def username():
     print("--------------------------------\n")
 
 
-def main():  # main function placeholder
-    
-    username()
+def main():
+    """
+    Main function of the file houses user prompts for the interface
+    as well as looping through validation checks for user guesses with word
+    length and checks for if word is a valid 7 letter word, with the results
+    of the user guesses and game outcome printed if correct or unsuccessful.
+    """
     pydle_set = load_pydle_list("data/word_list.txt")
     valid_words = load_valid_list("data/valid_words.txt")
     hidden_word = random.choice(list(pydle_set))
-    pydle_words = []
     pydle = Pydle(hidden_word)
 
     while pydle.guess_still:
@@ -67,7 +70,7 @@ def main():  # main function placeholder
                 )
             continue
 
-        if not user_guess in valid_words:
+        if user_guess not in valid_words:  # validation for real 7 letter word
             print(
                 Fore.RED + f"{user_guess} doesn't exist or isn't a valid word"
                 + Fore.RESET
@@ -97,23 +100,40 @@ def main():  # main function placeholder
         print(Fore.RED + "\n GAME OVER\n" + Fore.RESET)
         print("--------------------------------\n")
 
+
 def load_pydle_list(path: str):
+    """
+    Function reads the word_list.txt file and adds to the list of words to be
+    guessed by the user. It will take this list and make them uppercase for
+    validation.
+    """
     pydle_set = set()
-    with open(path, "r") as f:
-        for line in f.readlines():
-            pydle_word = line.strip().upper()
-            pydle_set.add(pydle_word)
+    with open(path, "r") as file:
+        for line in file.readlines():
+            pydle_words = line.strip().upper()
+            pydle_set.add(pydle_words)
     return pydle_set
 
+
 def load_valid_list(path: str):
+    """
+    Function reads the valid_words.txt file for a list of all possible valid
+    words that are of 7 characters in length and is checked for validation
+    against the users guessses in the main function.
+    """
     valid_set = set()
-    with open(path, "r") as f:
-        for line in f.readlines():
+    with open(path, "r") as file:
+        for line in file.readlines():
             valid_words = line.strip().upper()
             valid_set.add(valid_words)
     return valid_set
 
+
 def interface_result(pydle: Pydle):
+    """
+    Prints the interface presented to the player with a player hint and
+    colours the user guess and remaining guesses shown as underscores.
+    """
     print("\nTip:")
     print("--------------------------------")
     print(Fore.CYAN + " Correct letter in position")
@@ -151,4 +171,5 @@ def color_interface_result(guess_result: List[CharacterRule]):
     return " ".join(color_guess)
 
 
+username()
 main()
