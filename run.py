@@ -23,7 +23,7 @@ def username():
     print("\n--------------------------------")
     print(Fore.WHITE + "\nWelcome to Pydle " + Fore.BLUE + f"{user}! "
           + Fore.WHITE + "This is a Python CLI version of the \n"
-          "popular game Wordle. In this version you will have 5 attempts \n"
+          "popular game Wordle. In this version you will have 7 attempts \n"
           "at guessing the hidden word. If you guess the correct letter but\n"
           "in the wrong space then the letter will turn white. If you guess\n"
           "the correct letter and it is in the right position then the\n"
@@ -38,7 +38,7 @@ def main():  # main function placeholder
     
     username()
     pydle_set = load_pydle_list("data/word_list.txt")
-    valid_words = load_
+    valid_words = load_valid_list("data/valid_words.txt")
     hidden_word = random.choice(list(pydle_set))
     pydle_words = []
     pydle = Pydle(hidden_word)
