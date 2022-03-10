@@ -23,8 +23,8 @@ def username():
     print(" ")
     user = input("To begin playing please enter Your Username: ").capitalize()
     print("\n--------------------------------")
-    print("\nWelcome to Pydle " + Fore.BLUE + f"{user}! " + Fore.RESET +
-          "This is a Python CLI version of the \n"
+    print(Fore.WHITE + "\nWelcome to Pydle " + Fore.BLUE + f"{user}! "
+          + Fore.WHITE + "This is a Python CLI version of the \n"
           "popular game Wordle. In this version you will have 5 attempts \n"
           "at guessing the hidden word. If you guess the correct letter but\n"
           "in the wrong space then the letter will turn white. If you guess\n"
@@ -42,7 +42,9 @@ def main():  # main function placeholder
 
     while pydle.guess_still:
         # convert user input to uppercase to match against hidden word.
-        user_guess = input("\nEnter your guess: ").upper()
+        user_guess = input(
+            Fore.YELLOW + "\nEnter your guess: " + Fore.RESET
+            ).upper()
 
         if len(user_guess) > pydle.WORD_SIZE:  # Character length validation
             print(
