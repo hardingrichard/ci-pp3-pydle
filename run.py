@@ -6,7 +6,7 @@ making guesses at what is thought the hidden word could be. This version Pydle
 consists of words made up of 7 letters and the user will have 5 attempts
 instead of 6 at guessing the correct word or the game will result in a loss.
 """
-
+import random
 from typing import List
 from colorama import Fore  # Library for changing terminal text colour
 import gspread
@@ -14,22 +14,24 @@ from google.oauth2.service_account import Credentials
 from character_rule import CharacterRule
 from pydle_logic import Pydle
 
-# Google sheets API access
+# Google sheets API access and constants
 
-SCOPE = [
-    "https://www.googleapis.com/auth/spreadsheets",
-    "https://www.googleapis.com/auth/drive.file",
-    "https://www.googleapis.com/auth/drive"
-    ]
+# SCOPE = [
+#     "https://www.googleapis.com/auth/spreadsheets",
+#     "https://www.googleapis.com/auth/drive.file",
+#     "https://www.googleapis.com/auth/drive"
+#     ]
 
-CREDS = Credentials.from_service_account_file("creds.json")
-SCOPED_CREDS = CREDS.with_scopes(SCOPE)
-GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-SHEET = GSPREAD_CLIENT.open("word_list")
+# CREDS = Credentials.from_service_account_file("creds.json")
+# SCOPED_CREDS = CREDS.with_scopes(SCOPE)
+# GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
+# SHEET = GSPREAD_CLIENT.open("word_list")
 
-list_of_words = SHEET.worksheet("list_of_words")
-words_to_use = list_of_words.get_all_values()
-
+# list_of_words = SHEET.worksheet("list_of_words")
+# pydle_words = list_of_words.get_all_values()
+# print(pydle_words)
+# hidden_word = random.choice(dict(pydle_words)
+# print(hidden_word)
 
 # Pydle interface functions
 
@@ -93,7 +95,7 @@ def main():  # main function placeholder
         print("--------------------------------")
         print(
             "\n You guessed correctly! \n" + Fore.RESET +
-            " The hidden word was: " + Fore.GREEN + f"{pydle.hidden}\n" +
+            " The hidden word was: " + Fore.GREEN + f"{pydle.hidden_word}\n" +
             Fore.RESET
             )
         print("--------------------------------")
@@ -103,7 +105,7 @@ def main():  # main function placeholder
               + Fore.RESET
               )
         print(" The word you were trying to solve was: " + Fore.GREEN +
-              f"{pydle.hidden}\n" + Fore.RESET
+              f"{pydle.hidden_word}\n" + Fore.RESET
               )
         print("--------------------------------")
         print(Fore.RED + "\n GAME OVER\n" + Fore.RESET)
