@@ -9,8 +9,27 @@ instead of 6 at guessing the correct word or the game will result in a loss.
 
 from typing import List
 from colorama import Fore  # Library for changing terminal text colour
+import gspread
+from google.oauth2.service_account import Credentials
 from character_rule import CharacterRule
 from pydle_logic import Pydle
+
+# Google sheets API access
+
+SCOPE = [
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/drive.file",
+    "https://www.googleapis.com/auth/drive"
+    ]
+
+CREDS = Credentials.from_service_account_file("creds.json")
+SCOPED_CREDS = CREDS.with_scopes(SCOPE)
+GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
+SHEET = GSPREAD_CLIENT.open("word_list")
+
+list_of_words = SHEET.worksheet("list_of_words")
+words_to_use = list_of_words.get_all_values()
+
 
 # Pydle interface functions
 
