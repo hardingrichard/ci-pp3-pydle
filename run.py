@@ -19,7 +19,7 @@ def username():
     """
     # Possibly add a log in prompt here for username and password.
     print(" ")
-    user = input("To begin playing please enter Your Username: ").capitalize()
+    user = input("To begin playing please enter your name:\n").capitalize()
     print("\n--------------------------------")
     print(Fore.WHITE + "\nWelcome to Pydle " + Fore.BLUE + f"{user}! "
           + Fore.WHITE + "This is a Python CLI version of the \n"
