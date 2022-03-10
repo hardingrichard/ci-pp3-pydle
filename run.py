@@ -71,7 +71,7 @@ def main():  # main function placeholder
         # print(*guess_result, sep="\n")  # Prints each result on new line
 
     if pydle.correct_guess:
-        print("\n--------------------------------")
+        print("--------------------------------")
         print(
             "\n You guessed correctly! \n" + Fore.RESET +
             " The hidden word was: " + Fore.GREEN + f"{pydle.hidden}\n" +
@@ -102,10 +102,10 @@ def interface_result(pydle: Pydle):
     for word in pydle.guesses:
         guess_result = pydle.guess_attempt(word)
         color_string_result = color_interface_result(guess_result)
-        print(color_string_result)
+        print(" " * 8 + color_string_result)
 
     for _ in range(pydle.guess_remain):
-        print("_ " * pydle.WORD_SIZE)
+        print(" " * 8 + "_ " * pydle.WORD_SIZE)
 
     print(f"\nRemaining guesses... {pydle.guess_remain}\n")
 
