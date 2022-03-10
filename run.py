@@ -98,6 +98,7 @@ def interface_result(pydle: Pydle):
     print(Fore.WHITE + " Correct letter not in position")
     print(Fore.LIGHTBLACK_EX + " Incorrect letter not in word" + Fore.RESET)
     print("--------------------------------\n")
+
     for word in pydle.guesses:
         guess_result = pydle.guess_attempt(word)
         color_string_result = color_interface_result(guess_result)
@@ -105,6 +106,8 @@ def interface_result(pydle: Pydle):
 
     for _ in range(pydle.guess_remain):
         print("_ " * pydle.WORD_SIZE)
+
+    print(f"\nRemaining guesses... {pydle.guess_remain}\n")
 
 
 def color_interface_result(guess_result: List[CharacterRule]):
