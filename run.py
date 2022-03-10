@@ -9,31 +9,8 @@ instead of 6 at guessing the correct word or the game will result in a loss.
 import random
 from typing import List
 from colorama import Fore  # Library for changing terminal text colour
-import gspread
-from google.oauth2.service_account import Credentials
 from character_rule import CharacterRule
 from pydle_logic import Pydle
-
-# Google sheets API access and constants
-
-# SCOPE = [
-#     "https://www.googleapis.com/auth/spreadsheets",
-#     "https://www.googleapis.com/auth/drive.file",
-#     "https://www.googleapis.com/auth/drive"
-#     ]
-
-# CREDS = Credentials.from_service_account_file("creds.json")
-# SCOPED_CREDS = CREDS.with_scopes(SCOPE)
-# GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-# SHEET = GSPREAD_CLIENT.open("word_list")
-
-# list_of_words = SHEET.worksheet("list_of_words")
-# pydle_words = list_of_words.get_all_values()
-# print(pydle_words)
-# hidden_word = random.choice(dict(pydle_words)
-# print(hidden_word)
-
-# Pydle interface functions
 
 
 def username():
@@ -58,8 +35,13 @@ def username():
 
 
 def main():  # main function placeholder
+    
     username()
-    pydle = Pydle("JACUZZI")
+    pydle_set = load_pydle_list("data/word_list.txt")
+    valid_words = load_
+    hidden_word = random.choice(list(pydle_set))
+    pydle_words = []
+    pydle = Pydle(hidden_word)
 
     while pydle.guess_still:
         # convert user input to uppercase to match against hidden word.
@@ -85,11 +67,15 @@ def main():  # main function placeholder
                 )
             continue
 
+        if not user_guess in valid_words:
+            print(
+                Fore.RED + f"{user_guess} doesn't exist or isn't a valid word"
+                + Fore.RESET
+            )
+            continue
+
         pydle.guess(user_guess)
         interface_result(pydle)
-
-        # guess_result = pydle.guess_attempt(user_guess)
-        # print(*guess_result, sep="\n")  # Prints each result on new line
 
     if pydle.correct_guess:
         print("--------------------------------")
@@ -111,6 +97,21 @@ def main():  # main function placeholder
         print(Fore.RED + "\n GAME OVER\n" + Fore.RESET)
         print("--------------------------------\n")
 
+def load_pydle_list(path: str):
+    pydle_set = set()
+    with open(path, "r") as f:
+        for line in f.readlines():
+            pydle_word = line.strip().upper()
+            pydle_set.add(pydle_word)
+    return pydle_set
+
+def load_valid_list(path: str):
+    valid_set = set()
+    with open(path, "r") as f:
+        for line in f.readlines():
+            valid_words = line.strip().upper()
+            valid_set.add(valid_words)
+    return valid_set
 
 def interface_result(pydle: Pydle):
     print("\nTip:")
