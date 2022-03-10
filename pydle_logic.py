@@ -10,7 +10,7 @@ from character_rule import CharacterRule
 class Pydle:
     # Class constants
     WORD_SIZE = 7
-    GUESS_MAX = 5
+    GUESS_MAX = 7
 
     def __init__(self, hidden_word: str):  # set argument to string
         self.hidden_word: str = hidden_word
