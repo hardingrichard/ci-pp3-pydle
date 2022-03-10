@@ -102,10 +102,10 @@ def interface_result(pydle: Pydle):
     for word in pydle.guesses:
         guess_result = pydle.guess_attempt(word)
         color_string_result = color_interface_result(guess_result)
-        print(" " * 8 + color_string_result)
+        print(" " * 8 + color_string_result + "\n")
 
     for _ in range(pydle.guess_remain):
-        print(" " * 8 + "_ " * pydle.WORD_SIZE)
+        print(" " * 8 + "_ " * pydle.WORD_SIZE + "\n")
 
     print(f"\nRemaining guesses... {pydle.guess_remain}\n")
 
