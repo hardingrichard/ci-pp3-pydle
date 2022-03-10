@@ -12,8 +12,8 @@ class Pydle:
     WORD_SIZE = 7
     GUESS_MAX = 5
 
-    def __init__(self, hidden: str):  # set argument 'hidden' to string
-        self.hidden: str = hidden
+    def __init__(self, hidden_word: str):  # set argument to string
+        self.hidden_word: str = hidden_word
         self.guesses = []
 
     def guess(self, word: str):
@@ -30,8 +30,8 @@ class Pydle:
         for i in range(self.WORD_SIZE):
             character_x = word[i]
             letter = CharacterRule(character_x)
-            letter.correct_letter = character_x in self.hidden
-            letter.correct_position = character_x == self.hidden[i]
+            letter.correct_letter = character_x in self.hidden_word
+            letter.correct_position = character_x == self.hidden_word[i]
             guess_result.append(letter)
 
         return guess_result
@@ -42,7 +42,7 @@ class Pydle:
         True if current guess is equal to the hidden word then win condition
         otherwise False
         """
-        return len(self.guesses) > 0 and self.guesses[-1] == self.hidden
+        return len(self.guesses) > 0 and self.guesses[-1] == self.hidden_word
 
     @property
     def guess_remain(self) -> int:  # return as an integer
