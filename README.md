@@ -28,3 +28,71 @@ word. [Link to website](https://pydle-cli.herokuapp.com/)
 8. [Deployment and Version Control](#deployment-and-version-control)
 9. [Credits and Acknowledgements](#credits-and-acknowledgements)
 
+## Key Project Goals
+
+### Site Owner Goals
+
+
+### User Goals
+
+
+## Information Gathering
+
+### Target Audience
+
+
+### User Requirements
+
+
+### User Stories
+
+
+## Site Design
+
+
+### Design Choice
+
+
+## Features
+
+
+## Technology Stack
+
+### Languages
+
+
+### Frameworks and Tools
+
+
+## Testing
+
+### Validation
+
+
+### User Story Testing
+
+
+## Bugs and Fixes
+
+
+
+## Deployment and Version Control
+
+### Deployment
+
+
+### Cloning
+
+
+### Version Control
+
+
+### EmailjS API
+
+
+## Credits and Acknowledgements
+
+### Credits
+
+
+### Acknowledgements
