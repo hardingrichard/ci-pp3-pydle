@@ -96,7 +96,7 @@ def welcome():
     print(Fore.MAGENTA + "\nWELCOME TO PYDLE \n" + Fore.RESET)
     print("--------------------------------\n")
     print(Fore.WHITE + "This is a Python CLI version of the popular game\n"
-          "Wordle. In this version you will have 7 attempts at guessing the\n"
+          "Wordle. In this version, you will have 7 attempts at guessing the\n"
           "hidden word. If you guess the correct letter but in the wrong\n"
           "space then the letter will turn white. If you guess the correct\n"
           "letter and it is in the right position then the letter will turn\n"
@@ -191,8 +191,8 @@ def load_pydle_list(path: str):
 def load_valid_list(path: str):
     """
     Function reads the valid_words.txt file for a list of all possible valid
-    words that are of 7 characters in length and is checked for validation
-    against the users guessses in the main function.
+    words that are 7 characters in length and are checked for validation
+    against the user's guesses in the main function.
     """
     valid_set = set()
     with open(path, "r", encoding="utf8") as file:
