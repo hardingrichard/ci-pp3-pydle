@@ -73,7 +73,9 @@ same word consistently appear.
 ## Information Gathering
 
 ### Target Audience
-
+* The casual gamer who likes to pick up a game to play when bored.
+* Education sector as a tool for learning vocabulary and spelling.
+* Workers who are looking to play a simple and quick game on their breaks.
 
 ### User Requirements
 
