@@ -118,7 +118,45 @@ The Pydle flowchart can be seen below. It was created using Lucid Charts.
 </details>
 
 ### Data Models
+The Pydle application makes use of both functional and object orientated 
+programming in forms of classes, decorators, methods, functions, attributes,
+for and while loops as well as lists and dictionaries. 
 
+Two classes were used within the project for the logic of the game as well as
+the rules for the letters for the hidden word with booleans and were defined 
+as 'Pydle' for the game logic and 'CharacterRule' for the letter rules. 
+
+Lists and dictionaries were used to grab the list of valid words as well as 
+a list of words to be used for the hidden words and manipulate them so that
+the index of the letters within those words could be iterated.
+
+For and While loops were used in order to iterate through the list of words 
+to be used for the hidden word as well as the letters within the words as an 
+index for validation displaying whether a word/letter was correct or not.
+
+The run.py file houses the main function of the game as well as the interface
+functions of the game. This was chosen to be the main file in which the game
+would be run from, importing the logic and rules from the other .py files.
+
+The pydle_logic.py file houses the game logic within the class: Pydle. This
+was chosen to be seperated from the main run.py file in order to make it
+easier to be able to read and a less confusing structure. It allowed me to 
+then import this class into the main file without having to worry about it's
+position within the structure of the file.
+
+the character_rule.py file is where the class: CharacterRule is held which
+defines the rules for if the letters are in the hidden word or in the correct
+position. It is imported into the main run.py file and referred to within the
+functions. It was decided to have its own seperate file for ease of reference
+as well as not having to worry about it's position within the structure of the
+file.
+
+Two .txt files were used. valid_words.txt holds a list of all the possible 7
+letter words that are valid real words. This file was used for validation
+purposes so that the user wasn't able to guess words that do not exist or type
+random letters to cheat the game. The word_list.txt is a list of 500 of the
+most commmon 7 letter words and is used for choosing a random word from this
+list for the hidden word that the user must guess.
 
 ## Features
 
