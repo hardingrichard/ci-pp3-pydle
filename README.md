@@ -31,7 +31,10 @@ word. [Link to website](https://pydle-cli.herokuapp.com/)
 ## Key Project Goals
 
 ### Site Owner Goals
-
+* To create a simple and engaging game with a replayability factor
+* Users to test their vocabulary and possibly learn new words!
+* Have familiarity with the game Wordle so that new users can easily pick up
+and start playing fairly intuitively.
 
 ### User Goals
 
@@ -47,10 +50,13 @@ word. [Link to website](https://pydle-cli.herokuapp.com/)
 ### User Stories
 
 
-## Site Design
+## Technical Design
 
 
-### Design Choice
+### Flowchart
+
+
+### Data Models
 
 
 ## Features
@@ -87,10 +93,8 @@ word. [Link to website](https://pydle-cli.herokuapp.com/)
 ### Version Control
 
 
-### EmailjS API
-
-
 ## Credits and Acknowledgements
+
 
 ### Credits
 
