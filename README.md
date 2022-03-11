@@ -60,6 +60,7 @@ message.
 * Users to test their vocabulary and possibly learn new words!
 * Have familiarity with the game Wordle so that new users can easily pick up.
 and start playing fairly intuitively.
+* Provide the user with feedback on their entries and win/loss outcome.
 
 ### User Goals
 * Pick up a game that is engaging and challenging to play.
