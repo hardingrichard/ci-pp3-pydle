@@ -6,11 +6,17 @@ making guesses at what is thought the hidden word could be. This version Pydle
 consists of words made up of 7 letters and the user will have 7 attempts
 instead of 6 at guessing the correct word or the game will result in a loss.
 """
+# Imports
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Python:
 import random
+# 3rd party:
 from typing import List
 from colorama import Fore  # Library for changing terminal text colour
+# Internal:
 from character_rule import CharacterRule
 from pydle_logic import Pydle
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 def username():
