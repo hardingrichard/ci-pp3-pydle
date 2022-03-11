@@ -90,7 +90,7 @@ def main():
         print("--------------------------------")
     else:
         print("\n--------------------------------")
-        print("\n Oh no! You've run out of guesses!" + Fore.RED + " (5/5)\n" +
+        print("\n Oh no! You've run out of guesses!" + Fore.RED + " (7/7)\n" +
               Fore.RESET
               )
         print(" The word you were trying to solve was: " + Fore.GREEN +
