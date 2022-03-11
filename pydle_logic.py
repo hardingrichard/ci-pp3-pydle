@@ -1,6 +1,6 @@
 """
 pydle_logic.py contains the functions used for the logic of the Pydle game.
-Seperate from main run.py for ease of reference within the game code and
+Separate from main run.py for ease of reference within the game code and
 to make it easier to read.
 """
 from character_rule import CharacterRule
@@ -29,7 +29,7 @@ class Pydle:
 
     def guess_attempt(self, word: str):
         """
-        Compares the user guess against hidden word and gives feedback for the
+        Compares the user guess against hidden_word and gives feedback for the
         letter by looping through the hidden word letter by letter and checking
         if the character is valid.
         """
@@ -65,23 +65,23 @@ class Pydle:
     @property
     def correct_guess(self):
         """
-        True if current guess is equal to the hidden word then win condition
-        otherwise False
+        True if the current guess is equal to hidden word, then win condition,
+        otherwise False.
         """
         return len(self.guesses) > 0 and self.guesses[-1] == self.hidden_word
 
     @property
     def guess_remain(self) -> int:  # return as an integer
         """
-        Function for how many remaining attempts the user has
+        Function for how many remaining guess attempts the user has.
         """
         return self.GUESS_MAX - len(self.guesses)
 
     @property
     def guess_still(self):
         """
-        When user has used all their guesses or correctly guessed then can no
-        longer continue guessing. True when current number of guesses is less
-        than the max guess of 5
+        When the user has used all their guesses or correctly guessed then can
+        no longer continue guessing. True when the current number of guesses
+        is less than the max guess of 7.
         """
         return self.guess_remain > 0 and not self.correct_guess
