@@ -218,7 +218,15 @@ be a bug and has been reported by multiple users.
 * to complete
 
 ## Bugs and Fixes
-* Add bug fix information in a table format.
+I had an issue over the course of a couple days trying to get the pygame module to work. After logging tutor support realised that this module wouldn't work with the terminal and ended up scrapping the repository and starting fresh. The project was met with multiple bugs during the process and some of which were documented and shown below.
+
+BUG | FIX
+Class object was being printed in the terminal as an object instead of the constructor instance name. | Changed the f-string from '{pydle}' to {pydle.hidden_word}. This then printed the word letters rather than an object name.
+Index out of range - tried to access index of guessed word but no element. | Check if length > 0 and last guess == hidden_word.
+Type error '>' not supported between instances of 'method' and 'int'. | Add decorators to the method then used an int return annotation.
+Syntax error closing parenthesis ']' does not match opening parenthesis '('. | Deleted the type in error of ']' that was stopping code from running.
+Index error: string index out of range. | In the for loop for 'guess_attempt' function, 'word[i]' wasn't put into an argument of the CharacterRule class.
+On trying to colour the result of the user guess. Colour isn't working and instead was producing blank lines. | I had referred to the wrong parameter of 'color_guess' instead of 'guess_result' on changing this fixed the terminal output.
 
 ## Deployment and Version Control
 
