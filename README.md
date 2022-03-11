@@ -209,6 +209,11 @@ be a bug and has been reported by multiple users.
 <img src="docs/validation/character_rule_pep8_validation.png" alt="character_rule.py pep8 validation image">
 </details>
 
+<details>
+<summary>VS code Pylint</summary>
+<img src="docs/validation/vscode_pylint_terminal.png" alt="VS code Pylint validation image">
+</details>
+
 ### User Story Testing
 * to complete
 
