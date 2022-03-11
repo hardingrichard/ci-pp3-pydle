@@ -220,7 +220,19 @@ be a bug and has been reported by multiple users.
 ## Deployment and Version Control
 
 ### Deployment
+The Pydle application was deployed from Github using Heroku app. In order to
+deploy your application please complete the following:
 
+1. Create an account at heroku.com
+2. Create a new app 
+3. Add the app name and your region
+4. Click on create app
+5. Go to "Settings"
+6. Under Config Vars, add the key: PORT and the value: 8000.
+7. Go to "Deploy" and at "Deployment method", click on "Connect to Github"
+8. Enter your repository name and click on it when it shows below
+9. Choose the branch you want to buid your app from
+10. If desired, click on "Enable Automatic Deploys", which keeps the app up to date with your Github repository
 
 ### Cloning
 If you wish to clone the repository you can do so by [clicking here](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) or completing the following:
@@ -236,8 +248,12 @@ If you wish to clone the repository you can do so by [clicking here](https://doc
 
 ## Credits and Acknowledgements
 
-
 ### Credits
-
+* Add credits information here.
 
 ### Acknowledgements
+I would like to give a moment to thank:
+* My parents for testing the application as first time users to see if they found the game intuitive.
+* My mentor Mo Shami for his time, guidance and feedback during our meetings.
+* Tutor support for answering a query that had me stuck for a couple of days.
+* My cohort on slack for responding to questions.
