@@ -151,13 +151,16 @@ most commmon 7 letter words and is used for choosing a random word from this
 list for the hidden word that the user must guess.
 
 ### User Interface
-The user interface makes use of a simple 'lo fi' asthaetic and select colours
+The user interface makes use of a simple 'lo fi' aesthetic and select colours
 in order to be able to provide the user with validation feedback on their 
-inputs, such as invalid words or incorrect word lengths type result in an 
+inputs, such as invalid words or incorrect word lengths typed, result in an 
 error message displayed in red. Positive results such as guessing the correct 
 hidden word results in a green message to the user. Colours were also used in 
 order to display whether the user has guessed the correct letter within the 
-word or if the correctly guessed letter is in the right position.
+word or if the correctly guessed letter is in the right position. Underscores
+were used to display the length of the characters under the users guess and 
+so that they could also have visual feedback of remaining guesses as well as
+having textual feedback.
 
 ## Features
 * Username input
