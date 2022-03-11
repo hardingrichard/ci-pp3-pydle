@@ -111,7 +111,11 @@ the user.
 ## Technical Design
 
 ### Flowchart
-
+The Pydle flowchart can be seen below. It was created using Lucid Charts.
+<details>
+<summary>Pydle Flowchart</summary>
+<img src="docs/pydle_flowchart.png" alt="Pydle Flowchart image">
+</details>
 
 ### Data Models
 
