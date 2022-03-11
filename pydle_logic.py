@@ -36,6 +36,7 @@ class Pydle:
         # Assigns variable to guess results array with dark letters
         guess_result = [CharacterRule(user_guess) for user_guess in word]
 
+        # Third party code taken and manipulated to fit my requirements
         # Creates a copy of the hidden word
         hidden_remain = list(self.hidden_word)
         for i in range(self.WORD_SIZE):
