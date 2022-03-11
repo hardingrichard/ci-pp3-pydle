@@ -13,6 +13,7 @@ import random
 # 3rd party:
 from typing import List
 from colorama import Fore  # Library for changing terminal text colour
+import pwinput
 import gspread
 from google.oauth2.service_account import Credentials
 # Internal:
@@ -33,23 +34,31 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open("users_logins")
 DATA_OF_LOGINS = SHEET.worksheet('login_data')
 
+
 def user_login():
     """
-    Function where the user input creates a username and password which is
-    pushed to google sheets for storing a record. 
+    Function where the user inputs a username and password which is
+    referenced against google sheets for login data.
     """
-    print("\n**** PYDLE USER LOG IN TERMINAL **** \n")
-    print("Before you can start playing. Please log in below using your "
-          "username and password details...\n")
+    print(Fore.MAGENTA + "\n**** PYDLE USER LOG IN TERMINAL **** \n")
+    print(
+          Fore.RESET + "Before you can start playing. Please log in below"
+          " using your username and password details.\n" + Fore.YELLOW +
+          "Please Note: username and password details are case sensitive.\n"
+          + Fore.RESET
+          )
 
-    username = input("Please enter username: \n")
-    password = input("Please enter Password: \n")
-
+    username = input("Please enter username: \n" + Fore.MAGENTA)
+    # pwinput masks the password when typing and changes to '*'
+    password = pwinput.pwinput(Fore.RESET + "\nPlease enter Password: \n" +
+                               Fore.MAGENTA
+                               )
     login = retrieve_user_login()
-    
+
     # Check username and if it does not match userid then restart loop
-    if [value for value in login if value ["userid"] != username]:
-        print(Fore.RED + "Username incorrect. Please try again." + Fore.RESET)
+    if [value for value in login if value["userid"] != username]:
+        print(Fore.RED + "\nIncorrect Username. Login was unsuccessful.")
+        print("Please re-enter your details and try again" + Fore.RESET)
         user_login()
     else:
         correct_userdetails = [
@@ -58,17 +67,19 @@ def user_login():
 
     # Check for password match then log user in and proceed to welcome message
     # If password doesn't match print incorrect feedback to user and restart
-    if password == correct_userdetails["passwordid"]:
-        print(Fore.GREEN + "you have successfully logged in" + Fore.RESET)
-        welcome()
-    else:
-        print(Fore.RED + "Incorrect password. Login was unsuccessful.")
-        print("Please re-enter your details and try again" + Fore.RESET)
-        user_login()
+        if password == correct_userdetails["passwordid"]:
+            print(Fore.GREEN + "\nYou have successfully logged in." +
+                  Fore.RESET
+                  )
+            welcome()
+        else:
+            print(Fore.RED + "\nIncorrect password. Login was unsuccessful.")
+            print("Please re-enter your details and try again" + Fore.RESET)
+            user_login()
 
 
-def retrieve_user_login():
-    """ 
+def retrieve_user_login() -> list:
+    """
     Function which takes the user login details from the google sheets
     returning as a list of lists.
     """
@@ -81,18 +92,17 @@ def welcome():
     Function to print a welcome message to the user with information on how
     to play Pydle
     """
-    # print(" ")
-    # user = input("To begin playing please enter your name:\n").capitalize()
-    # print("\n--------------------------------")
-    print(Fore.WHITE + "\nWelcome to Pydle " + Fore.BLUE + f"{username}! " +
-          Fore.WHITE + "This is a Python CLI version of the \n"
-          "popular game Wordle. In this version you will have 7 attempts \n"
-          "at guessing the hidden word. If you guess the correct letter but\n"
-          "in the wrong space then the letter will turn white. If you guess\n"
-          "the correct letter and it is in the right position then the\n"
-          "letter will turn blue. To add an extra challenge, the \n"
-          "word you will be guessing is also 7 letters long..." + Fore.GREEN +
-          " Good luck!\n" + Fore.RESET
+    print("\n--------------------------------")
+    print(Fore.MAGENTA + "\nWELCOME TO PYDLE \n" + Fore.RESET)
+    print("--------------------------------\n")
+    print(Fore.WHITE + "This is a Python CLI version of the popular game\n"
+          "Wordle. In this version you will have 7 attempts at guessing the\n"
+          "hidden word. If you guess the correct letter but in the wrong\n"
+          "space then the letter will turn white. If you guess the correct\n"
+          "letter and it is in the right position then the letter will turn\n"
+          "blue. To add an extra challenge, the word you will be guessing\n"
+          "is also 7 letters long..." + Fore.GREEN +
+          " GOOD LUCK!\n" + Fore.RESET
           )
     print("--------------------------------\n")
 
@@ -171,7 +181,7 @@ def load_pydle_list(path: str):
     validation.
     """
     pydle_set = set()
-    with open(path, "r") as file:
+    with open(path, "r", encoding="utf8") as file:
         for line in file.readlines():
             pydle_words = line.strip().upper()
             pydle_set.add(pydle_words)
@@ -185,7 +195,7 @@ def load_valid_list(path: str):
     against the users guessses in the main function.
     """
     valid_set = set()
-    with open(path, "r") as file:
+    with open(path, "r", encoding="utf8") as file:
         for line in file.readlines():
             valid_words = line.strip().upper()
             valid_set.add(valid_words)
@@ -233,6 +243,6 @@ def color_interface_result(guess_result: List[CharacterRule]):
         color_guess.append(character_color)
     return " ".join(color_guess)
 
+
 user_login()
-welcome()
 main()
