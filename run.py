@@ -3,7 +3,7 @@ Pydle - A python CLI version of the popular Wordle game
 
 The game is a simple word game where the user must find the hidden word by
 making guesses at what is thought the hidden word could be. This version Pydle
-consists of words made up of 7 letters and the user will have 5 attempts
+consists of words made up of 7 letters and the user will have 7 attempts
 instead of 6 at guessing the correct word or the game will result in a loss.
 """
 import random
@@ -28,7 +28,7 @@ def username():
           "in the wrong space then the letter will turn white. If you guess\n"
           "the correct letter and it is in the right position then the\n"
           "letter will turn blue. To add an extra challenge, the \n"
-          "word you will be guessing is 7 letters long..." + Fore.GREEN +
+          "word you will be guessing is also 7 letters long..." + Fore.GREEN +
           " Good luck!\n" + Fore.RESET
           )
     print("--------------------------------\n")
