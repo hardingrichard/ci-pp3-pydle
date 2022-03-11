@@ -21,8 +21,8 @@ def username():
     print(" ")
     user = input("To begin playing please enter your name:\n").capitalize()
     print("\n--------------------------------")
-    print(Fore.WHITE + "\nWelcome to Pydle " + Fore.BLUE + f"{user}! "
-          + Fore.WHITE + "This is a Python CLI version of the \n"
+    print(Fore.WHITE + "\nWelcome to Pydle " + Fore.BLUE + f"{user}! " +
+          Fore.WHITE + "This is a Python CLI version of the \n"
           "popular game Wordle. In this version you will have 7 attempts \n"
           "at guessing the hidden word. If you guess the correct letter but\n"
           "in the wrong space then the letter will turn white. If you guess\n"
@@ -56,8 +56,8 @@ def main():
             print(
                 Fore.RED + f"The word '{user_guess}' is greater than "
                 f"{pydle.WORD_SIZE} characters... "
-                f"You need to guess a {pydle.WORD_SIZE} letter word!"
-                + Fore.RESET
+                f"You need to guess a {pydle.WORD_SIZE} letter word!" +
+                Fore.RESET
                 )
             continue
 
@@ -65,15 +65,15 @@ def main():
             print(
                 Fore.RED + f"The word '{user_guess}' is less than "
                 f"{pydle.WORD_SIZE} characters... "
-                f"You need to guess a {pydle.WORD_SIZE} letter word!"
-                + Fore.RESET
+                f"You need to guess a {pydle.WORD_SIZE} letter word!" +
+                Fore.RESET
                 )
             continue
 
         if user_guess not in valid_words:  # validation for real 7 letter word
             print(
-                Fore.RED + f"{user_guess} doesn't exist or isn't a valid word"
-                + Fore.RESET
+                Fore.RED + f"{user_guess} doesn't exist or isn't a valid" +
+                "word" + Fore.RESET
             )
             continue
 
@@ -90,8 +90,8 @@ def main():
         print("--------------------------------")
     else:
         print("\n--------------------------------")
-        print("\n Oh no! You've run out of guesses!" + Fore.RED + " (5/5)\n"
-              + Fore.RESET
+        print("\n Oh no! You've run out of guesses!" + Fore.RED + " (5/5)\n" +
+              Fore.RESET
               )
         print(" The word you were trying to solve was: " + Fore.GREEN +
               f"{pydle.hidden_word}\n" + Fore.RESET
