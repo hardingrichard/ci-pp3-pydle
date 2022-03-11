@@ -218,7 +218,7 @@ be a bug and has been reported by multiple users.
 * to complete
 
 ## Bugs and Fixes
-I had an issue over the course of a couple days trying to get the pygame module to work. After logging tutor support realised that this module wouldn't work with the terminal and ended up scrapping the repository and starting fresh. The project was met with multiple bugs during the process and some of which were documented and shown below.
+I had an issue over the course of a couple days trying to get the pygame module to work. Receiving a pygame.error: no available video device. After reaching out and logging a tutor support ticket, realised that this module wouldn't work with the terminal and ended up scrapping the repository and starting fresh with a CLI version instead of a GUI application. The project was met with multiple bugs during the process and some of which were documented and shown below.
 
 BUG | FIX
 Class object was being printed in the terminal as an object instead of the constructor instance name. | Changed the f-string from '{pydle}' to {pydle.hidden_word}. This then printed the word letters rather than an object name.
@@ -260,7 +260,20 @@ If you wish to clone the repository you can do so by [clicking here](https://doc
 ## Credits and Acknowledgements
 
 ### Credits
-* Add credits information here.
+I made use of multiple sources of information, guides and tutorials during the course of the project in order to gain understanding and solve issues that i had. These can be seen listed below:
+* Stack Overflow
+* Use of map() - (https://www.realpython.com/python-map-function/)
+* Classes and objects - (https://www.w3schools.com/python/python_classes.asp)
+* Constructors - (https://pythonbasics.org/constructor/)
+* Youtube Pixegami tutorial - (https://youtu.be/SyWeex-S6d0)
+* Youtube 3Blue1Brown tutorial - (https://www.youtube.com/watch?v=fRed0Xmc2Wg)
+* Decorators - (https://realpython.com/primer-on-python-decorators/)
+* Colorama and printing coloured text - (https://www.studytonight.com/python-howtos/how-to-print-colored-text-in-python)
+* Int: return annotations - (https://docs.python.org/3/library/typing.html)
+* Python type hints - (https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html)
+* Python type hints 2 - (https://docs.python.org/3/library/typing.html)
+* Python tutorial - (https://docs.python.org/3/tutorial/)
+
 
 ### Acknowledgements
 I would like to give a moment to thank:
