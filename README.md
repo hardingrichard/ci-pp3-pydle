@@ -4,6 +4,7 @@ interface of the Python terminal. This version consists of a hidden word made
 up of 7 characters long where the user will have 7 guesses to find the hidden
 word. [Click here to play on the Heroku app](https://pydle-cli.herokuapp.com/)
 
+![Pydle Heroku app terminal](docs/mockup/pydle_terminal.png)
 
 ## Table Of Contents
 
