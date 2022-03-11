@@ -85,7 +85,28 @@ same word consistently appear.
 * If the game was lost, to know what the winning outcome would have been.
 
 ### User Stories
-
+No. | As a | I want to | so that
+----|------|-----------|--------
+1 | user | have an intuitive experience | i can easily play the game.
+2 | user | have feedback as i play | i can see what the correct letters are.
+3 | user | see the winning outcome | i can see what i was trying to guess if
+not successful.
+4 | user | be able to restart the game | i can play again if game ends or 
+freezes.
+5 | user | know that i am guessing valid words | i'm not wasting my guess 
+attempts adding to my experience.
+6 | site owner | provide a description on how to play | users who are not
+familiar with the game Wordle will know how to play Pydle.
+7 | site owner | give feedback of invalid guesses | it will avoid any
+unecessary frustrations with users typing invalid words or words not of the
+correct length without realising.
+8 | site owner | display the hidden word on end of game | users can see what
+word they were trying to guess if unsuccessful.
+9 | site owner | feedback on remaining guesses | to increase the user 
+experience so that they are able to see how many tries they have left before 
+the game will finish.
+10 | site owner | have valid Python code | no errors or bugs are returned to 
+the user.
 
 ## Technical Design
 
