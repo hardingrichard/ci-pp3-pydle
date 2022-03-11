@@ -13,12 +13,24 @@ import random
 # 3rd party:
 from typing import List
 from colorama import Fore  # Library for changing terminal text colour
+import gspread
 from google.oauth2.service_account import Credentials
 # Internal:
 from character_rule import CharacterRule
 from pydle_logic import Pydle
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+SCOPE = [
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/drive.file",
+    "https://www.googleapis.com/auth/drive"
+    ]
+
+# Google API constants
+CREDS = Credentials.from_service_account_file("creds.json")
+SCOPED_CREDS = CREDS.with_scopes(SCOPE)
+GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
+SHEET = GSPREAD_CLIENT.open("users_logins")
 DATA_OF_LOGINS = SHEET.worksheet('login_data')
 
 def user_login():
@@ -26,7 +38,33 @@ def user_login():
     Function where the user input creates a username and password which is
     pushed to google sheets for storing a record. 
     """
-    pass
+    print("\n**** PYDLE USER LOG IN TERMINAL **** \n")
+    print("Before you can start playing. Please log in below using your "
+          "username and password details...\n")
+
+    username = input("Please enter username: \n")
+    password = input("Please enter Password: \n")
+
+    login = retrieve_user_login()
+    
+    # Check username and if it does not match userid then restart loop
+    if [value for value in login if value ["userid"] != username]:
+        print(Fore.RED + "Username incorrect. Please try again." + Fore.RESET)
+        user_login()
+    else:
+        correct_userdetails = [
+            value for value in login if value["userid"] == username
+            ][0]
+
+    # Check for password match then log user in and proceed to welcome message
+    # If password doesn't match print incorrect feedback to user and restart
+    if password == correct_userdetails["passwordid"]:
+        print(Fore.GREEN + "you have successfully logged in" + Fore.RESET)
+        welcome()
+    else:
+        print(Fore.RED + "Incorrect password. Login was unsuccessful.")
+        print("Please re-enter your details and try again" + Fore.RESET)
+        user_login()
 
 
 def retrieve_user_login():
@@ -38,15 +76,15 @@ def retrieve_user_login():
     return login_info
 
 
-def username():
+def welcome():
     """
-    Function to create the player username for greeting
+    Function to print a welcome message to the user with information on how
+    to play Pydle
     """
-    # Possibly add a log in prompt here for username and password.
-    print(" ")
-    user = input("To begin playing please enter your name:\n").capitalize()
-    print("\n--------------------------------")
-    print(Fore.WHITE + "\nWelcome to Pydle " + Fore.BLUE + f"{user}! " +
+    # print(" ")
+    # user = input("To begin playing please enter your name:\n").capitalize()
+    # print("\n--------------------------------")
+    print(Fore.WHITE + "\nWelcome to Pydle " + Fore.BLUE + f"{username}! " +
           Fore.WHITE + "This is a Python CLI version of the \n"
           "popular game Wordle. In this version you will have 7 attempts \n"
           "at guessing the hidden word. If you guess the correct letter but\n"
@@ -195,6 +233,6 @@ def color_interface_result(guess_result: List[CharacterRule]):
         color_guess.append(character_color)
     return " ".join(color_guess)
 
-
-username()
+user_login()
+welcome()
 main()
