@@ -176,7 +176,6 @@ having textual feedback.
 ### Languages
 * Python 3
 
-
 ### Frameworks and Tools
 * Git
 * GitHub
@@ -214,8 +213,7 @@ be a bug and has been reported by multiple users.
 * to complete
 
 ## Bugs and Fixes
-
-
+* Add bug fix information in a table format.
 
 ## Deployment and Version Control
 
