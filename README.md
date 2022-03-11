@@ -19,6 +19,7 @@ word. [Click here to play on the Heroku app](https://pydle-cli.herokuapp.com/)
 4. [Technical Design](#technical-design)
     1. [Flowchart](#flowchart)
     2. [Data Models](#data-models)
+    3. [User Interface](#user-interface)
 5. [Features](#features)
 6. [Technology stack](#technology-stack)
     1. [Languages](#languages)
@@ -149,8 +150,22 @@ random letters to cheat the game. The word_list.txt is a list of 500 of the
 most commmon 7 letter words and is used for choosing a random word from this
 list for the hidden word that the user must guess.
 
-## Features
+### User Interface
+The user interface makes use of a simple 'lo fi' asthaetic and select colours
+in order to be able to provide the user with validation feedback on their 
+inputs, such as invalid words or incorrect word lengths type result in an 
+error message displayed in red. Positive results such as guessing the correct 
+hidden word results in a green message to the user. Colours were also used in 
+order to display whether the user has guessed the correct letter within the 
+word or if the correctly guessed letter is in the right position.
 
+## Features
+* Username input
+* How to play
+* guess word input
+* Word and character length validation
+* Interface displaying guessed word and remaining attempts
+* Win/Loss conditions
 
 ## Technology Stack
 
