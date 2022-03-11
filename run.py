@@ -13,10 +13,29 @@ import random
 # 3rd party:
 from typing import List
 from colorama import Fore  # Library for changing terminal text colour
+from google.oauth2.service_account import Credentials
 # Internal:
 from character_rule import CharacterRule
 from pydle_logic import Pydle
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+DATA_OF_LOGINS = SHEET.worksheet('login_data')
+
+def user_login():
+    """
+    Function where the user input creates a username and password which is
+    pushed to google sheets for storing a record. 
+    """
+    pass
+
+
+def retrieve_user_login():
+    """ 
+    Function which takes the user login details from the google sheets
+    returning as a list of lists.
+    """
+    login_info = DATA_OF_LOGINS.get_all_records()
+    return login_info
 
 
 def username():
