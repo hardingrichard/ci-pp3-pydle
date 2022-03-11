@@ -223,7 +223,13 @@ be a bug and has been reported by multiple users.
 
 
 ### Cloning
-
+If you wish to clone the repository you can do so by [clicking here](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) or completing the following:
+1. Locate and click on the Code button at the top of the directory within the GitHub repository
+2. This will dropdown the option of HTTPS, SSH and GitHub CLI and the option to open with GitHub Desktop or Download ZIP. Choose the option you prefer and click the copy to clipboard button
+3. Open the Git bash terminal
+4. Choose the working directory location to where you wish to have the cloned directory.
+5. Type "git clone" followed by pasting the URL you copied in step 2.
+6. Press Enter to complete and create your local clone.
 
 ### Version Control
 
