@@ -189,17 +189,29 @@ having textual feedback.
 ## Testing
 
 ### Validation
-The Python code for each .py file was vlidated using the PEP8 Online
-Validation Service. 
-
-The main run.py file returned with zero errors or warnings.
+The Python code for each .py file was validated using the PEP8 Online
+Validation Service. The main run.py file returned with zero errors or
+warnings. The pydle_logic.py file and the character_rule.py file both
+returned with the E701 - multiple statements on one line (colon) weak 
+warning code. When googling this warning code it appears that it could 
+be a bug and has been reported by multiple users.
 <details>
 <summary>run.py</summary>
 <img src="docs/validation/runpy_pep8_validation.png" alt="run.py pep8 validation image">
 </details>
 
-### User Story Testing
+<details>
+<summary>pydle_logic.py</summary>
+<img src="docs/validation/pydle_logic_pep8_validation.png" alt="pydle_logic.py pep8 validation image">
+</details>
 
+<details>
+<summary>character_rule.py</summary>
+<img src="docs/validation/character_rule_pep8_validation.png" alt="character_rule.py pep8 validation image">
+</details>
+
+### User Story Testing
+* to complete
 
 ## Bugs and Fixes
 
