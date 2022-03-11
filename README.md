@@ -167,8 +167,9 @@ having textual feedback.
 * How to play
 * guess word input
 * Word and character length validation
-* Interface displaying guessed word and remaining attempts
-* Win/Loss conditions
+* Tips section giving concise reminder of what the interface colours mean
+* Interface displaying guessed word and remaining attempts with colours
+* Win/Loss conditions message and game over message
 
 ## Technology Stack
 
@@ -188,7 +189,14 @@ having textual feedback.
 ## Testing
 
 ### Validation
+The Python code for each .py file was vlidated using the PEP8 Online
+Validation Service. 
 
+The main run.py file returned with zero errors or warnings.
+<details>
+<summary>run.py</summary>
+<img src="docs/validation/runpy_pep8_validation.png" alt="run.py pep8 validation image">
+</details>
 
 ### User Story Testing
 
