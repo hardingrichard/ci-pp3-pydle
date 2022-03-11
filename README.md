@@ -134,7 +134,7 @@ easier to be able to read and a less confusing structure. It allowed me to
 then import this class into the main file without having to worry about it's
 position within the structure of the file.
 
-the character_rule.py file is where the class: CharacterRule is held which
+The character_rule.py file is where the class: CharacterRule is held which
 defines the rules for if the letters are in the hidden word or in the correct
 position. It is imported into the main run.py file and referred to within the
 functions. It was decided to have its own seperate file for ease of reference
@@ -154,10 +154,17 @@ list for the hidden word that the user must guess.
 ## Technology Stack
 
 ### Languages
+* Python 3
 
 
 ### Frameworks and Tools
-
+* Git
+* GitHub
+* Gitpod
+* Heroku
+* Lucidchart
+* VS code Pylint
+* PEP8online python linter
 
 ## Testing
 
