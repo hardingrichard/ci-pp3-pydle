@@ -2,7 +2,7 @@
 A Python version of the popular game Wordle played in the command line
 interface of the Python terminal. This version consists of a hidden word made
 up of 7 characters long where the user will have 7 guesses to find the hidden
-word. [Link to website](https://pydle-cli.herokuapp.com/)
+word. [Click here to play on the Heroku app](https://pydle-cli.herokuapp.com/)
 
 
 ## Table Of Contents
@@ -109,7 +109,6 @@ the game will finish.
 the user.
 
 ## Technical Design
-
 
 ### Flowchart
 
