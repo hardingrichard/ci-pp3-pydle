@@ -232,7 +232,7 @@ If you wish to clone the repository you can do so by [clicking here](https://doc
 6. Press Enter to complete and create your local clone.
 
 ### Version Control
-
+[Click here](https://github.com/hardingrichard/ci-pp3-pydle/commits/main) to explore the history of the creation process and see what the code looked like at different points in time and what changes were made. Regular commits were made in order to make it easier to view the thought process during the creation of the application and readme and also have saved back up points to avoid loss of work in case of any serious malfunctions.
 
 ## Credits and Acknowledgements
 
