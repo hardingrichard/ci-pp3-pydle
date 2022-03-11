@@ -78,7 +78,11 @@ same word consistently appear.
 * Workers who are looking to play a simple and quick game on their breaks.
 
 ### User Requirements
-
+* Have an engaging game to play which is fun and can be replayed.
+* Intuitive to play without having a steep learning curve
+* Gameplay to work as intended
+* Feedback on progress within the game
+* If the game was lost, to know what the winning outcome would have been.
 
 ### User Stories
 
