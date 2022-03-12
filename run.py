@@ -181,7 +181,7 @@ def load_pydle_list(path: str):
     validation.
     """
     pydle_set = set()
-    with open(path, "r") as file:
+    with open(path, "r", encoding="utf8") as file:
         for line in file.readlines():
             pydle_words = line.strip().upper()
             pydle_set.add(pydle_words)
@@ -195,7 +195,7 @@ def load_valid_list(path: str):
     against the user's guesses in the main function.
     """
     valid_set = set()
-    with open(path, "r") as file:
+    with open(path, "r", encoding="utf8") as file:
         for line in file.readlines():
             valid_words = line.strip().upper()
             valid_set.add(valid_words)
