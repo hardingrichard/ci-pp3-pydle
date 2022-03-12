@@ -44,8 +44,8 @@ def user_login():
     print(
           Fore.RESET + "Before you can start playing. Please log in below"
           " using your username and password details.\n" + Fore.YELLOW +
-          "Please Note: username and password details are case sensitive.\n"
-          + Fore.RESET
+          "Please Note: username and password details are case sensitive.\n" +
+          Fore.RESET
           )
 
     username = input("Please enter username: \n" + Fore.MAGENTA)
