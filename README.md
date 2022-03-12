@@ -263,8 +263,8 @@ If you wish to clone the repository you can do so by [clicking here](https://doc
 ## Credits and Acknowledgements
 
 ### Credits
-I made use of multiple sources of information, guides and tutorials during the course of the project in order to gain understanding and solve issues that i had. These can be seen listed below:
-* Stack Overflow
+I made use of multiple sources of information, guides and tutorials during the course of the project in order to gain understanding and solve issues that I had. These can be seen listed below:
+* Various Stack Overflow topics
 * Use of map() - (https://www.realpython.com/python-map-function/)
 * Classes and objects - (https://www.w3schools.com/python/python_classes.asp)
 * Constructors - (https://pythonbasics.org/constructor/)
@@ -276,7 +276,7 @@ I made use of multiple sources of information, guides and tutorials during the c
 * Python type hints - (https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html)
 * Python type hints 2 - (https://docs.python.org/3/library/typing.html)
 * Python tutorial - (https://docs.python.org/3/tutorial/)
-
+* Password masking with pwinput - (https://stackoverflow.com/questions/35805078/how-do-i-convert-a-password-into-asterisks-while-it-is-being-entered)
 
 ### Acknowledgements
 I would like to give a moment to thank:
