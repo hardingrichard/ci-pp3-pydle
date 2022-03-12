@@ -341,7 +341,7 @@ User log in | Attempt to log in | On unsuccessful log in the code validation kic
 I had an issue spanning a couple of days trying to get the pygame module to work. Receiving a pygame.error: no available video device. After reaching out and logging a tutor support ticket, realised that this module wouldn't work with the terminal and ended up scrapping the repository and starting fresh with a CLI version instead of a GUI application. The project was met with multiple bugs during the process and some of which were documented and shown below.
 
 BUG | FIX
----------
+----|----
 Class object was being printed in the terminal as an object instead of the constructor instance name. | Changed the f-string from '{pydle}' to {pydle.hidden_word}. This then printed the word letters rather than an object name.
 Index out of range - tried to access an index of guessed word but no element. | Check if length > 0 and last guess == hidden_word.
 Type error '>' not supported between instances of 'method' and 'int'. | Add decorators to the method then used an int return annotation.
