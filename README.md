@@ -175,7 +175,7 @@ The username login section requires the user to type in the username and passwor
 <summary>Incorrect login</summary>
 <img src="docs/features/features_incorrect_login.png" alt="login terminal image">
 </details>
-On incorrect login the user is presented feedback notifying of either an incorrect username or password typed and requires the user to re-input the correct login details.
+On incorrect login the user is presented feedback notifying of either an incorrect username or password typed and requires the user to re-input the correct login details. <br>
 * User stories: 9
 
 ### Welcome Message And How To Play
@@ -183,7 +183,7 @@ On incorrect login the user is presented feedback notifying of either an incorre
 <summary>Welcome/how to play</summary>
 <img src="docs/features/features_welcome_howtoplay.png" alt="How to play terminal image">
 </details>
-After successfully logging in the user is presented a welcome message and instructions on how to play the game.
+After successfully logging in the user is presented a welcome message and instructions on how to play the game. <br>
 * User stories: 1, 6
 
 ### User Guess Input And Validation
@@ -191,7 +191,7 @@ After successfully logging in the user is presented a welcome message and instru
 <summary>User guess and validation</summary>
 <img src="docs/features/features_word_input.png" alt="User guess terminal image">
 </details>
-The user is required to enter a 7 letter word to try and guess the hidden word. The word must be valid and if not the user will be displayed feedback to let them know if the word is less than 7 characters, more than 7 characters or isn't a valid word. 
+The user is required to enter a 7 letter word to try and guess the hidden word. The word must be valid and if not the user will be displayed feedback to let them know if the word is less than 7 characters, more than 7 characters or isn't a valid word. <br>
 * User story: 4, 6 
 
 ### Tips section
@@ -199,7 +199,7 @@ The user is required to enter a 7 letter word to try and guess the hidden word. 
 <summary>User tips</summary>
 <img src="docs/features/features_tips.png" alt="User tips section terminal image">
 </details>
-There is a tips section presented to the user to give them a reminder of what the colour coding for each letter displayed with Blue being correct colour in the correct positon, White being correct letter but in the wrong position and black not being in the word.
+There is a tips section presented to the user to give them a reminder of what the colour coding for each letter displayed with Blue being correct colour in the correct positon, White being correct letter but in the wrong position and black not being in the word. <br>
 * User story: 5
 
 ### User interface
@@ -207,7 +207,7 @@ There is a tips section presented to the user to give them a reminder of what th
 <summary>User interface</summary>
 <img src="docs/features/features_interface.png" alt="User interface terminal image">
 </details>
-The user interface displays the guessed words by the user with each letter colour coded to the tips section. The interface also consists of underscores under the guessed words providing feedback to the user of their progress and an idea of how many attempts remain. There is also a further prompt underneath that gives a clear indication to the use of how many guesses the user has left.
+The user interface displays the guessed words by the user with each letter colour coded to the tips section. The interface also consists of underscores under the guessed words providing feedback to the user of their progress and an idea of how many attempts remain. There is also a further prompt underneath that gives a clear indication to the use of how many guesses the user has left. <br>
 * User story: 2, 4, 8
 
 ### End game condition
@@ -215,7 +215,7 @@ The user interface displays the guessed words by the user with each letter colou
 <summary>End game condition</summary>
 <img src="docs/features/features_endgame.png" alt="End game terminal image">
 </details>
-Once the user has guessed the word or has used up all their remaining attempts and end game condition is met and the user is presented with a message letting them know that they were either successful or unsuccessful. It also provides the user with what the hidden word was giving additional user experience.
+Once the user has guessed the word or has used up all their remaining attempts and end game condition is met and the user is presented with a message letting them know that they were either successful or unsuccessful. It also provides the user with what the hidden word was giving additional user experience. <br>
 * User story: 7
 
 ## Technology Stack
