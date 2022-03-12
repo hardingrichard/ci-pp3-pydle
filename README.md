@@ -90,16 +90,15 @@ same word consistently appear.
 ### User Stories
 No. | As a | I want to | so that
 ----|------|-----------|--------
-1 | user | have an intuitive experience | I can easily play the game.
+1 | user | know how to play the game | I can easily play without confusion.
 2 | user | have feedback as I play | I can see what the correct letters are.
 3 | user | see the winning outcome | I can see what i was trying to guess if not successful.
-4 | user | be able to restart the game | I can play again if the game ends or freezes.
-5 | user | know that I am guessing valid words | I'm not wasting my guess attempts adding to my experience.
-6 | site owner | provide a description on how to play | users who are not familiar with the game Wordle will know how to play Pydle.
-7 | site owner | give feedback of invalid guesses | it will avoid any unnecessary frustrations with users typing invalid words or words not of the correct length without realising.
-8 | site owner | display the hidden word on the end of game | users can see what word they were trying to guess if unsuccessful.
-9 | site owner | feedback on remaining guesses | to increase the user experience so that they can see how many tries they have left before the game will finish.
-10 | site owner | have valid Python code | no errors or bugs are returned to the user.
+4 | user | know that I am guessing valid words | I'm not wasting my guess attempts adding to my experience.
+5 | site owner | provide a description on how to play | users who are not familiar with the game Wordle will know how to play Pydle.
+6 | site owner | give feedback of invalid guesses | it will avoid any unnecessary frustrations with users typing invalid words or words not of the correct length without realising.
+7 | site owner | display the hidden word on the end of game | users can see what word they were trying to guess if unsuccessful.
+8 | site owner | feedback on remaining guesses | to increase the user experience so that they can see how many tries they have left before the game will finish.
+9 | site owner | have valid Python code | no errors or bugs are returned to the user.
 
 ## Technical Design
 
@@ -164,13 +163,60 @@ could also have visual feedback of remaining guesses as well as having textual
 feedback.
 
 ## Features
-* Username input
-* How to play
-* guess word input
-* Word and character length validation
-* Tips section giving a concise reminder of what the interface colours mean
-* Interface displaying guessed word and remaining attempts with colours
-* Win/Loss conditions message and game over message
+The Pydle application runs in a terminal and is made up of 7 different features:
+
+### Username Login
+<details>
+<summary>Username login</summary>
+<img src="docs/features/features_username_login.png" alt="login terminal image">
+</details>
+The username login section requires the user to type in the username and password to gain access to start playing. The username data is sent to and fetched from google sheets via an API.
+<details>
+<summary>Incorrect login</summary>
+<img src="docs/features/features_incorrect_login.png" alt="login terminal image">
+</details>
+On incorrect login the user is presented feedback notifying of either an incorrect username or password typed and requires the user to re-input the correct login details.
+* User stories: 9
+
+### Welcome Message And How To Play
+<details>
+<summary>Welcome/how to play</summary>
+<img src="docs/features/features_welcome_howtoplay.png" alt="How to play terminal image">
+</details>
+After successfully logging in the user is presented a welcome message and instructions on how to play the game.
+* User stories: 1, 6
+
+### User Guess Input And Validation
+<details>
+<summary>User guess and validation</summary>
+<img src="docs/features/features_word_input.png" alt="User guess terminal image">
+</details>
+The user is required to enter a 7 letter word to try and guess the hidden word. The word must be valid and if not the user will be displayed feedback to let them know if the word is less than 7 characters, more than 7 characters or isn't a valid word. 
+* User story: 4, 6 
+
+### Tips section
+<details>
+<summary>User tips</summary>
+<img src="docs/features/features_tips.png" alt="User tips section terminal image">
+</details>
+There is a tips section presented to the user to give them a reminder of what the colour coding for each letter displayed with Blue being correct colour in the correct positon, White being correct letter but in the wrong position and black not being in the word.
+* User story: 5
+
+### User interface
+<details>
+<summary>User interface</summary>
+<img src="docs/features/features_interface.png" alt="User interface terminal image">
+</details>
+The user interface displays the guessed words by the user with each letter colour coded to the tips section. The interface also consists of underscores under the guessed words providing feedback to the user of their progress and an idea of how many attempts remain. There is also a further prompt underneath that gives a clear indication to the use of how many guesses the user has left.
+* User story: 2, 4, 8
+
+### End game condition
+<details>
+<summary>End game condition</summary>
+<img src="docs/features/features_endgame.png" alt="End game terminal image">
+</details>
+Once the user has guessed the word or has used up all their remaining attempts and end game condition is met and the user is presented with a message letting them know that they were either successful or unsuccessful. It also provides the user with what the hidden word was giving additional user experience.
+* User story: 7
 
 ## Technology Stack
 
