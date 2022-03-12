@@ -93,7 +93,7 @@ No. | As a | I want to | so that
 1 | user | know how to play the game | I can easily play without confusion.
 2 | user | have feedback as I play | I can see what the correct letters are.
 3 | user | see the winning outcome | I can see what i was trying to guess if not successful.
-4 | user | know that I am guessing valid words | I'm not wasting my guess attempts adding to my experience.
+4 | user | know that I am guessing valid words | I'm not wasting my guess attempts adding to my user experience.
 5 | site owner | provide a description on how to play | users who are not familiar with the game Wordle will know how to play Pydle.
 6 | site owner | give feedback of invalid guesses | it will avoid any unnecessary frustrations with users typing invalid words or words not of the correct length without realising.
 7 | site owner | display the hidden word on the end of game | users can see what word they were trying to guess if unsuccessful.
@@ -184,7 +184,7 @@ On incorrect login the user is presented feedback notifying of either an incorre
 <img src="docs/features/features_welcome_howtoplay.png" alt="How to play terminal image">
 </details>
 After successfully logging in the user is presented a welcome message and instructions on how to play the game. <br>
-* User stories: 1, 6
+* User stories: 1, 5
 
 ### User Guess Input And Validation
 <details>
@@ -210,13 +210,13 @@ There is a tips section presented to the user to give them a reminder of what th
 The user interface displays the guessed words by the user with each letter colour coded to the tips section. The interface also consists of underscores under the guessed words providing feedback to the user of their progress and an idea of how many attempts remain. There is also a further prompt underneath that gives a clear indication to the use of how many guesses the user has left. <br>
 * User story: 2, 4, 8
 
-### End game condition
+### End game condition message
 <details>
 <summary>End game condition</summary>
 <img src="docs/features/features_endgame.png" alt="End game terminal image">
 </details>
 Once the user has guessed the word or has used up all their remaining attempts and end game condition is met and the user is presented with a message letting them know that they were either successful or unsuccessful. It also provides the user with what the hidden word was giving additional user experience. <br>
-* User story: 7
+* User story: 3, 7
 
 ## Technology Stack
 
@@ -262,7 +262,80 @@ be a bug and has been reported by multiple users.
 </details>
 
 ### User Story Testing
-* to complete
+Testing of the User Stories which had been identified towards the top of the README are as follows:
+>  No. | As a | I want to | so that
+>  ----|------|-----------|--------
+>  1 | user | know how to play the game | I can easily play without confusion.
+
+Site Feature | Path of Action | Outcome | Testing Result
+-------------|----------------|---------|----------------
+How to play | Successfully log in | On successful log in a how to play message is displayed | Worked as intended.
+
+>  No. | As a | I want to | so that
+>  ----|------|-----------|--------
+>  2 | user | have feedback as I play | I can see what the correct letters are.
+
+Site Feature | Path of Action | Outcome | Testing Result
+-------------|----------------|---------|----------------
+User interface | Successfully log in and make a guess entry and hit enter | On making a guess a dispaly is shown with the word guessed with each letter colour coded to whether the letter is correct, in the right position or not in the word | Worked as intended.
+
+>  No. | As a | I want to | so that
+>  ----|------|-----------|--------
+>  3 | user | see the winning outcome | I can see what i was trying to guess if not successful.
+
+Site Feature | Path of Action | Outcome | Testing Result
+-------------|----------------|---------|----------------
+End game condition message | Successfully log in, made 7 word guesses as unable to find the hidden word | A message was displayed notifying "Oh no! You've run out of guesses! (7/7) The word you were tyring to solve was: FEELING" | Worked as intended.
+
+>  No. | As a | I want to | so that
+>  ----|------|-----------|--------
+>  4 | user | know that I am guessing valid words | I'm not wasting my guess attempts adding to my user experience.
+
+Site Feature | Path of Action | Outcome | Testing Result
+-------------|----------------|---------|----------------
+User guess input and validation | Successfully log in then make an attempt at guessing the word. | If a word was input which is less  than 7 characters or greater than 7 characters in length an error message is displayed giving feedback notifying this. If a nonsense word is typed that doesn't exist an error message is displayed with feedback notifying that the word is invalid and no guess attempts were used for these. | Worked as intended.
+User interface | Successfully log in and make attempts at guessing. | On valid word entries i can see the word is logged and is valid and that the guesses remaining prompt corresponds | Worked as intended.
+
+>  No. | As a | I want to | so that
+>  ----|------|-----------|--------
+>  5 | site owner | provide a description on how to play | users who are not familiar with the game Wordle will know how to play Pydle.
+
+Site Feature | Path of Action | Outcome | Testing Result
+-------------|----------------|---------|----------------
+How to play | Successfully log in | a welcome message and paragraph is displayed describing how to play the game | Worked as intended.
+
+>  No. | As a | I want to | so that
+>  ----|------|-----------|--------
+>  6 | site owner | give feedback of invalid guesses | it will avoid any unnecessary frustrations with users typing invalid words or words not of the correct length without realising.
+
+Site Feature | Path of Action | Outcome | Testing Result
+-------------|----------------|---------|----------------
+User guess input and validation | Successfully log in then make an attempt at guessing the word. | If a word was input which is less  than 7 characters or greater than 7 characters in length an error message is displayed giving feedback notifying this. If a nonsense word is typed that doesn't exist an error message is displayed with feedback notifying that the word is invalid and no guess attempts were used for these. | Worked as intended.
+
+>  No. | As a | I want to | so that
+>  ----|------|-----------|--------
+>  7 | site owner | display the hidden word on the end of game | users can see what word they were trying to guess if unsuccessful.
+
+Site Feature | Path of Action | Outcome | Testing Result
+-------------|----------------|---------|----------------
+End game condition message | Successfully log in, made 7 word guesses as unable to find the hidden word | A message was displayed notifying "Oh no! You've run out of guesses! (7/7) The word you were tyring to solve was: FEELING" | Worked as intended.
+
+>  No. | As a | I want to | so that
+>  ----|------|-----------|--------
+>  8 | site owner | feedback on remaining guesses | to increase the user experience so that they can see how many tries they have left before the game will finish.
+
+Site Feature | Path of Action | Outcome | Testing Result
+-------------|----------------|---------|----------------
+User interface | Successfully log in and make attempts at guessing. | On valid word entries i can see the word is logged and under are lines of underscores giving an indication of how many guess attempts remain. There is also a prompt at the bottom detailing how many guesses remain | Worked as intended.
+
+>  No. | As a | I want to | so that
+>  ----|------|-----------|--------
+>  9 | site owner | have valid Python code | no errors or bugs are returned to the user.
+
+Site Feature | Path of Action | Outcome | Testing Result
+-------------|----------------|---------|----------------
+User log in | Attempt to log in | On unsuccessful log in the code validation kicks in notifying the user that the incorrect username and/or password was typed and restarts the login process. On successful log in the application displays a successfully logged in message and advances to the instructions on how to play | Worked as intended.
+
 
 ## Bugs and Fixes
 I had an issue spanning a couple of days trying to get the pygame module to work. Receiving a pygame.error: no available video device. After reaching out and logging a tutor support ticket, realised that this module wouldn't work with the terminal and ended up scrapping the repository and starting fresh with a CLI version instead of a GUI application. The project was met with multiple bugs during the process and some of which were documented and shown below.
