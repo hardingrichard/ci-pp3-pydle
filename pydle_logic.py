@@ -40,7 +40,7 @@ class Pydle:
         # Assigns variable to guess results array with dark letters
         guess_result = [CharacterRule(user_guess) for user_guess in word]
 
-        # Third party code referred to and manipulated to fit requirements
+        # Third party code referred to and changed/added to fit requirements
         # See Credits section of README for 3Blue1Brown youtube tutorial.
         # Creates a copy of the hidden word
         hidden_remain = list(self.hidden_word)
