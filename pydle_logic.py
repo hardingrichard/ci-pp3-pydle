@@ -3,7 +3,11 @@ pydle_logic.py contains the functions used for the logic of the Pydle game.
 Separate from main run.py for ease of reference within the game code and
 to make it easier to read.
 """
+# Imports
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Internal:
 from character_rule import CharacterRule
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 class Pydle:
